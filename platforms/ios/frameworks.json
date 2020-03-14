@@ -1,0 +1,10 @@
+{
+    "QuartzCore.framework": 1,
+    "AVFoundation.framework": 1,
+    "AudioToolbox.framework": 1,
+    "CoreLocation.framework": 2,
+    "WebKit.framework": 1,
+    "SafariServices.framework": 1,
+    "SystemConfiguration.framework": 2,
+    "MapKit.framework": 1
+}

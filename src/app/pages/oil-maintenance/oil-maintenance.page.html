@@ -1,0 +1,125 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'OIL_PAGE.oil_maintenance' | translate }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-no-padding header-container">
+    <ion-row>
+
+      <ion-col size="12">&nbsp;</ion-col>
+
+      <ion-col size="4"></ion-col>
+      <ion-col class="ion-text-center item-avatar ion-align-self-center" size="4" routerLink="/deliveries">
+        <ion-avatar>
+          <img src="assets/google/marker/{{ item_icon }}.png">
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="4"></ion-col>
+
+
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <ion-button shape="round" expand="full" color="light">
+          {{ item_name }}
+          <ion-icon slot="end" src="assets/themify-icons/SVG/exchange-vertical.svg"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+  <ion-grid class="ion-no-padding ion-top-padding1">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-icon slot="start" src="assets/themify-icons/SVG/bell.svg"></ion-icon>
+        <ion-label>
+          <ion-text color="dark">{{ 'OIL_PAGE.oil_notification' | translate }}</ion-text>
+        </ion-label>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>{{ 'OIL_PAGE.oil_notify' | translate }}</ion-label>
+        <ion-toggle [(ngModel)]="oil_maintenance_alert" (click)="toggleOilMaintenanceAlert($event)"></ion-toggle>
+      </ion-item>
+
+
+      <ion-item button (click)="showBasicPicker('oil-maintenance-start')">
+        <ion-label>
+          <ion-row>
+
+            <ion-col>
+              <ion-text color="dark">{{ 'OIL_PAGE.start' | translate }}</ion-text>
+            </ion-col>
+            <ion-col class="ion-text-right">
+              {{ oil_maintenance_start }} {{ 'OIL_PAGE.km' | translate }}
+            </ion-col>
+
+          </ion-row>        
+        </ion-label>
+      </ion-item>
+
+      <ion-item button (click)="showBasicPicker('oil-maintenance-period')">
+        <ion-label>
+          <ion-row>
+
+            <ion-col>
+              <ion-text color="dark">{{ 'OIL_PAGE.period' | translate }}</ion-text>
+            </ion-col>
+            <ion-col class="ion-text-right">
+              {{ oil_maintenance_period }} {{ 'OIL_PAGE.km' | translate }}
+            </ion-col>
+
+          </ion-row>        
+        </ion-label>
+      </ion-item>
+      
+    </ion-list>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-icon slot="start" src="assets/themify-icons/SVG/alarm-clock.svg"></ion-icon>
+        <ion-label>
+          <ion-text color="dark">{{ 'OIL_PAGE.oil_maintenance_history' | translate }}</ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-group *ngFor="let item of dataList">
+        <ion-item-divider *ngIf="item.have_group != 0">
+          <ion-label>{{ item.serverdate }}</ion-label>
+        </ion-item-divider>
+      
+        <ion-item>
+          <ion-label>{{ item.servertime }}</ion-label>
+          <ion-note slot="end">{{ item.totalDistance }} {{ 'OIL_PAGE.km' | translate }}</ion-note>
+        </ion-item>
+        
+      </ion-item-group>
+    </ion-list>
+ 
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="{{ 'APP.load_more_data' | translate }}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-grid>
+  
+</ion-content>

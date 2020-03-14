@@ -1,0 +1,124 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <div slot="start">
+    <ion-img alt="logo" style="height: 28px; width: 90px;" src="assets/gps-logo.png"></ion-img> 
+    </div>
+
+      <ion-title>
+        {{ 'APP.my_profile' | translate }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/notification">
+          <ion-icon class="bell-button" src="assets/themify-icons/SVG/bell.svg"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid class="ion-no-padding header-container">
+    <ion-row>
+      <ion-col>
+        <h5 class="text-center">
+          {{ 'APP.thank_you_our_beloved_customer' | translate }}
+        </h5>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col class="" size="4">
+        
+      </ion-col>
+
+      <ion-col class="ion-text-center item-avatar ion-align-self-center" size="4" routerLink="/deliveries">
+        <ion-avatar>
+          <img src="{{ profile_picture }}">
+        </ion-avatar>
+      </ion-col>
+
+      <ion-col class="" size="4">
+      </ion-col>
+
+      <ion-col size="12">
+        <h5 class="text-center user-name">{{ name }}</h5>
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+  
+
+
+
+  <ion-grid class="ion-no-padding">
+
+
+
+    <ion-row class="button-3">
+      <ion-col class="" size="4" routerLink="/edit-profile">
+        <ion-img src="{{ 'ASSET.edit_profile' | translate }}"></ion-img>
+      </ion-col>
+
+      <ion-col class="" size="4" routerLink="/my-balance">
+        <ion-img src="{{ 'ASSET.balance' | translate }}"></ion-img>
+      </ion-col>
+
+      <ion-col class="" size="4" routerLink="/change-password">
+        <ion-img src="{{ 'ASSET.change_password' | translate }}"></ion-img>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+    
+  <ion-list class="ion-padding">
+    <!-- <ion-item >
+      <ion-avatar slot="start">
+        <ion-img src="assets/img/avatar.jpg"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>ប្តូរភាសា</h2>
+      </ion-label>
+      <ion-icon style="padding-right:5px;" src="assets/themify-icons/SVG/forward.svg"></ion-icon>
+    </ion-item> -->
+
+    <ion-item button routerLink="/pending">
+      <ion-icon name="barcode" slot="start"></ion-icon>
+      <ion-label>
+        <h2>
+          {{ 'APP.my_qr_code' | translate }}
+        </h2>
+      </ion-label>
+    </ion-item>
+    
+    <ion-item button (click)="chooseLanguage($event)">
+      <ion-icon name="globe" slot="start"></ion-icon>
+      <ion-label>
+        <h2>
+          {{ 'APP.choose_language' | translate }}
+        </h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button (click)="logout()">
+      <ion-icon name="log-out" slot="start"></ion-icon>
+      <ion-label>
+        <h2>
+          {{ 'APP.logout' | translate }}
+        </h2>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

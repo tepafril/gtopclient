@@ -1,0 +1,183 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <div slot="start">
+      <ion-img alt="logo" style="height: 28px; width: 90px;" src="assets/gps-logo.png"></ion-img>
+    </div>
+
+      <ion-title>
+        {{ 'APP.home' | translate }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/notification">
+          <ion-icon class="bell-button" src="assets/themify-icons/SVG/bell.svg"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding background-gray">
+
+
+    <ion-grid class="ion-no-padding header-container">
+      <ion-row>
+        <ion-col>
+          <h5 class="text-center">
+            {{ 'APP.welcome_for_visiting_gtop' | translate }}
+          </h5>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="button-1">
+        <ion-col class="" size="3" routerLink="/geolocation">
+          <img src="{{ 'ASSET.geolocation' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="3" routerLink="/history">
+          <img src="{{ 'ASSET.history' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="3" routerLink="/engine">
+          <img src="{{ 'ASSET.engine' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="3" routerLink="/device">
+          <img src="{{ 'ASSET.device' | translate }}">
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+
+
+    <ion-grid class="ion-no-padding padding-5">
+        <ion-row class="button-2 ion-hide-lg-up">
+
+          <ion-col button class="" size="3" routerLink="/disarm">
+            <img src="{{ 'ASSET.disarm' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/parking-alarm">
+            <img src="{{ 'ASSET.parking_alarm' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/trip">
+            <img src="{{ 'ASSET.trip' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/oil-maintenance">
+            <img src="{{ 'ASSET.oil' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/tire-maintenance">
+            <img src="{{ 'ASSET.tire' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/speed">
+            <img src="{{ 'ASSET.speed' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/summary">
+            <img src="{{ 'ASSET.report' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/manage-icon">
+            <img src="{{ 'ASSET.icon' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="3">
+            <img src="{{ 'ASSET.geofence' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="3">
+            <img src="{{ 'ASSET.polygonfence' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="3" routerLink="/manage-group">
+            <img src="{{ 'ASSET.group' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="3">
+            <img src="{{ 'ASSET.fuel' | translate }}">
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="button-2 ion-hide-md-down">
+
+          <ion-col class="" size="2" routerLink="/disarm">
+            <img src="{{ 'ASSET.disarm' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/parking-alarm">
+            <img src="{{ 'ASSET.parking_alarm' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/trip">
+            <img src="{{ 'ASSET.trip' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/oil-maintenance">
+            <img src="{{ 'ASSET.oil' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/tire-maintenance">
+            <img src="{{ 'ASSET.tire' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/speed">
+            <img src="{{ 'ASSET.speed' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/summary">
+            <img src="{{ 'ASSET.report' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/manage-icon">
+            <img src="{{ 'ASSET.icon' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="2">
+            <img src="{{ 'ASSET.geofence' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="2">
+            <img src="{{ 'ASSET.polygonfence' | translate }}">
+          </ion-col>
+
+          <ion-col class="" size="2" routerLink="/manage-group">
+            <img src="{{ 'ASSET.group' | translate }}">
+          </ion-col>
+
+          <ion-col class="disabled" size="2">
+            <img src="{{ 'ASSET.fuel' | translate }}">
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+     
+    <ion-slides [options]="sliderConfig" >
+      <ion-slide>
+          <ion-card class="ion-no-padding">  
+            <ion-card-content class="ion-no-padding">
+              <img src="assets/img/ads-1.jpg">
+            </ion-card-content>
+          </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+          <ion-card>
+            <ion-card-content class="ion-no-padding">
+              <img src="assets/img/ads-2.jpg">
+            </ion-card-content>
+          </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+ 
+
+</ion-content>

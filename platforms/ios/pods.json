@@ -1,0 +1,36 @@
+{
+    "declarations": {},
+    "sources": {
+        "https://cdn.cocoapods.org/": {
+            "source": "https://cdn.cocoapods.org/",
+            "count": 1
+        },
+        "https://github.com/CocoaPods/Specs.git": {
+            "source": "https://github.com/CocoaPods/Specs.git",
+            "count": 1
+        }
+    },
+    "libraries": {
+        "Firebase/Core": {
+            "name": "Firebase/Core",
+            "spec": "~> 6.3.0",
+            "count": 1
+        },
+        "Firebase/Auth": {
+            "name": "Firebase/Auth",
+            "spec": "~> 6.3.0",
+            "count": 1
+        },
+        "GoogleMaps": {
+            "name": "GoogleMaps",
+            "spec": "~> 3.1.0",
+            "count": 2
+        },
+        "OneSignal": {
+            "name": "OneSignal",
+            "type": "podspec",
+            "spec": "2.12.6",
+            "count": 1
+        }
+    }
+}

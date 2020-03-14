@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <div slot="start">
+    <ion-img alt="logo" style="height: 28px; width: 90px;" src="assets/gps-logo.png"></ion-img> 
+    </div>
+
+      <ion-title>
+        {{ 'APP.support' | translate }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/notification">
+          <ion-icon class="bell-button" src="assets/themify-icons/SVG/bell.svg"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    
+  <ion-list class="ion-padding">
+    <ion-item button (click)="undercontruction()">
+    <ion-icon name="information-circle" slot="start"></ion-icon>
+      <ion-label>
+        <h2>
+          {{ 'APP.about_us' | translate }}
+        </h2>
+      </ion-label>
+    </ion-item>
+    
+    <ion-item button (click)="undercontruction()">
+      <ion-icon name="chatbox" slot="start"></ion-icon>
+      <ion-label>
+        <h2>
+          {{ 'APP.feedback' | translate }}
+        </h2>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

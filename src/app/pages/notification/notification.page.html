@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'APP.notification' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-text class="ion-text-center">
+      <h6 class="ion-text-center">Recently has no notification!</h6>
+    </ion-text>
+  </ion-item>
+</ion-content>

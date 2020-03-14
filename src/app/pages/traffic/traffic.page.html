@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <div slot="start">
+      <ion-img alt="logo" style="height: 28px; width: 90px;" src="assets/gps-logo.png"></ion-img> 
+    </div>
+
+      <ion-title>
+        {{ 'APP.live_traffic' | translate }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/notification">
+          <ion-icon class="bell-button" src="assets/themify-icons/SVG/bell.svg"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    
+    <ion-img src="assets/img/live-traffic.jpg"></ion-img>
+
+    <ion-card-header>
+      <ion-card-subtitle><ion-badge color="danger">{{ 'APP.live' | translate }}</ion-badge></ion-card-subtitle>
+      <ion-card-title>{{ 'APP.this_footage_requires_fast_internet' | translate }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      {{ 'APP.this_is_from_ezecom' | translate }}
+    </ion-card-content>
+
+      <ion-button expand="full" color="primary" (click)="openInAppBrowser()">
+        {{ 'APP.visit' | translate }}
+      </ion-button>
+    
+  </ion-card>
+</ion-content>

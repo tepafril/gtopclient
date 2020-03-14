@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'PROFILE.my_balance' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <ion-text color="success">
+          {{ 'PROFILE.your_profile_is_valid_until' | translate }}
+        </ion-text>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="primary">
+        <h1 class="ion-text-center">365 {{ 'APP.day' | translate }}</h1>
+      </ion-text>
+      <p>&nbsp;</p>
+      <ion-text color="danger">
+        <h2 class="ion-text-center">{{ 'PROFILE.reg_date' | translate }} {{ reg_date }}</h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <h2 class="ion-text-center">{{ 'PROFILE.contact_to_renew' | translate }} {{ reg_date }}</h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,272 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+//@import url("https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900|Nokora:400,700");
+@import './theme/fonts.scss';
+
+
+// ion-app{
+//     --ion-font-family: "Nokora", "Muli", "Helvetica", "Arial", "sans-serif";
+// }
+
+.odad-sidemenu-separator{
+    border-top: 1px solid #d1cfce;
+    margin:0px auto;
+    width: 75%;
+    height: 2px;
+}
+
+
+.padding-top-5{
+    padding-top:5px;
+}
+.padding-bottom-5{
+    padding-bottom:5px;
+}
+
+.item-avatar  ion-avatar{     
+    width:60% !important;  
+    height : 60% !important;  
+    max-width: 200px !important;  //any size
+    max-height: 200px !important; //any size 
+    margin: auto;
+}
+
+.item-avatar {
+    text-align: center;
+}
+
+h5.user-name{
+    margin-top:5px;
+}
+
+
+ion-toolbar
+{
+    --background: #f4f3ef;
+    border-bottom: 1px solid #DDDDDD;
+    --color:#777777;
+}
+
+ion-title
+{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+ion-button
+{
+    color:#777777;
+}
+
+ion-content, ion-list, ion-item, ion-item ion-icon{
+    --color:#66615B;
+}
+
+$list-ios-margin-bottom : 15px;
+$list-md-margin-bottom : 15px;
+
+ion-button{
+    --ripple-color:#68B3C8;
+}
+
+ion-card{
+    --ion-item-background:#ffffff;
+    border-radius: 0px !important;
+    -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0) !important;
+}
+
+ion-card-header{
+    ion-card-title{
+        color: #252422;
+        font-weight: 300;
+        font-size:1.5em;
+    }
+    ion-card-subtitle{
+        font-size: 14px;
+        font-weight: 400;
+        color: #9A9A9A;
+        text-transform: none;
+    }
+}
+
+.text-white{
+    color:#ffffff !important;
+}
+
+.margin-left-15{
+    margin-left:15px;
+}
+
+.ngx-datatable.bootstrap .datatable-header .datatable-header-cell{
+    padding:15px 8px;    
+    font-size: 1.25em;
+    font-weight: 300;
+    color:#111;
+    border-width: 0px;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-odd{
+    background-color: #F3F2EE;
+    border-top: 1px solid #CCC5B9;
+}
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even{
+    background-color: #ffffff;
+    border-top: 1px solid #CCC5B9;
+    
+}
+
+ion-header{
+    ion-icon{
+        color:#fff;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+
+.bell-button{
+    padding-right:5px;
+}
+
+
+.header-container{
+    background-color: var(--ion-color-primary);
+    color:#fff;
+}
+
+
+ion-row.button-1 ion-col{
+    padding: 12px;
+}
+
+
+ion-row.button-2 ion-col ion-img,
+ion-row.button-2 ion-col img{
+    padding: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+}
+
+
+ion-row.button-3 ion-col ion-img,
+ion-row.button-3 ion-col img{
+    padding: 10px 20px;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
+}
+
+#map, #history_map{
+    width: 100%;
+    height: 100%;
+}
+
+.gtop-link,
+.gtop-link:active,
+.gtop-link:hover,
+.gtop-link:visited,
+.gtop-link:focus{
+    color:#fff;
+    text-decoration: none;
+}
+.toast-container{
+    text-align: center;
+}
+
+.disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}
+
+@-moz-keyframes bounce-in {
+    0% {
+        -moz-transform: scale(1.05,1.05);
+        -ms-transform: scale(1.05,1.05);
+    }
+    40% {
+        -moz-transform: scale(1.1, 1.1);
+        -ms-transform: scale(1.1, 1.1);
+    }
+    50% {
+        -moz-transform: scale(1.15,1.15);
+        -ms-transform: scale(1.15,1.15);
+    }
+    100% {
+        -moz-transform: scale(1.25, 1.25);
+        -ms-transform: scale(1.25, 1.25);
+    }
+}
+@-webkit-keyframes bounce-in {
+    0% {
+        -webkit-transform: scale(1.05,1.05);
+    }
+    40% {
+        -webkit-transform: scale(1.1, 1.1);
+    }
+    50% {
+        -webkit-transform: scale(1.15,1.15);
+    }
+    100% {
+        -webkit-transform: scale(1.25,1.25);
+    }
+}
+
+@-o-keyframes bounce-in {
+    0% {
+        -o-transform: scale(1.05,1.05);
+    }
+    40% {
+        -o-transform: scale(1.1, 1.1);
+    }
+    50% {
+        -o-transform: scale(1.15,1.15);
+    }
+    100% {
+        -o-transform: scale(1.25, 1.25);
+    }
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(1.05,1.05);
+    }
+    40% {
+        transform: scale(1.1, 1.1);
+    }
+    50% {
+        transform: scale(1.15,1.15);
+    }
+    100% {
+        transform: scale(1.25, 1.25);
+    }
+}

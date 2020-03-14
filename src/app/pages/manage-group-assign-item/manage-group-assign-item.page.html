@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-title>
+      Assign Item
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/close.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    
+    <ion-list>
+      <ion-item *ngIf="dataList?.length == 0">
+        <ion-col size="12" class="ion-text-center">
+          {{ 'APP.no_data' | translate }}
+        </ion-col>
+      </ion-item>
+
+      <ion-item-group *ngFor="let item of dataList">
+        <ion-item button (click)="attachItem(item.id)" *ngIf="item.isAttached == false">
+          <ion-label>
+            <h2>{{ item.name }} ({{ item.plate }})</h2>
+            <p>IMEI {{ item.imei }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="item.isAttached == true" class="disabled">
+          <ion-label>
+            <h2>{{ item.name }} ({{ item.plate }})</h2>
+            <p>IMEI {{ item.imei }}</p>
+          </ion-label>
+          <ion-icon slot="end" class="bell-button" src="assets/themify-icons/SVG/check-box.svg"></ion-icon>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+ 
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="{{ 'APP.load_more_data' | translate }}">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'APP.geolocation' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+  
+
+
+<ion-content>
+  <div id="map_canvas" >
+
+    <ion-fab vertical="top" horizontal="start" slot="fixed">
+      <ion-fab-button color="success" size="small" class="marginBottom5" (click)="controlNavigateUser()">
+        <ion-icon name="navigate-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="primary" size="small" class="marginBottom5" (click)="controlNavigateDevice()">
+        <ion-icon name="location-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="warning" size="small" class="marginBottom5" (click)="controlGoogleDirection()">
+        <ion-icon name="map-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+
+    <ion-fab vertical="center" horizontal="end" slot="fixed">
+      <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlSatelliteLayer()">
+        <ion-icon name="layers-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlTrafficLayer()">
+        <ion-icon name="trail-sign-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom:50px">
+      <ion-fab-button color="" size="small" class="marginBottom5" (click)="controlZoomIn()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="" size="small" class="marginBottom5" (click)="controlZoomOut()">
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    
+  </div>
+  <div id="over_map">
+    <ion-button size="small" shape="round" color="primary" (click)="selectDevice()">
+      {{ devicePlateNumber }}
+      <ion-icon slot="end" src="assets/themify-icons/SVG/exchange-vertical.svg"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

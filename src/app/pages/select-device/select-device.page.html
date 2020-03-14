@@ -1,0 +1,34 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+    
+    <!-- <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/close.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+
+    <ion-title>
+      Select Device
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" color="light">
+        Done
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="selectItem" value="{{selectItem}}">
+      <ion-item *ngFor="let item of dataList">
+        <ion-label>{{ item.name }} ({{ item.plate }})</ion-label>
+        <ion-radio mode="md" slot="start" disabled *ngIf="item.isDisabled"></ion-radio>
+        <ion-radio mode="md" (ionFocus)="ionSelect()" slot="start" value="{{ item.id }}" *ngIf="!item.isDisabled"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

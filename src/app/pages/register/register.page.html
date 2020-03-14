@@ -1,0 +1,54 @@
+<ion-content>
+  <img src="/assets/header-logo-red.jpg" class="ion-hide-md-up">
+
+  <ion-text color="dark">
+    <h2 class="ion-text-center">{{ 'REGISTER_PAGE.register_new_phone' | translate }}</h2>
+  </ion-text>
+
+  <form #form="ngForm" (ngSubmit)="sendOTP(form)" method="post" class="ion-padding" *ngIf="!isSent && !isPinVerified">
+    <ion-item>
+      <ion-text color="danger">
+        <h5 class="ion-text-center">{{ 'REGISTER_PAGE.enter_phone' | translate }}</h5>
+      </ion-text>
+      <ion-label position="floating">{{ 'APP.phone_number' | translate }}</ion-label>
+      <ion-input ngModel type="tel" name="phone" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" color="danger" type="submit">{{ 'APP.submit' | translate }}</ion-button>
+    <ion-button fill="clear" color="dark" expand="full" (click)="dismissRegister()"><ion-icon  src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon> &nbsp;&nbsp;&nbsp;&nbsp; {{ 'APP.back' | translate }}</ion-button>
+  </form>
+
+  <form #form="ngForm" (ngSubmit)="verifyOTP(form)" method="post" class="ion-padding" *ngIf="isSent && !isPinVerified">
+    <ion-item>
+      <ion-text color="danger">
+        <h5 class="ion-text-center">លោកអ្នកនឹងទទួលបានសារ(SMS) មួយដែលមានលេខ 6ខ្ទង់។ សូមបញ្ចូលលេខនោះក្នុងប្រអប់ខាងក្រោម</h5>
+      </ion-text>      
+      <ion-label position="floating">{{ 'APP.password' | translate }}</ion-label>
+      <ion-input ngModel type="tel" name="otp" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" color="danger" type="submit">{{ 'APP.submit' | translate }}</ion-button>
+    <ion-button fill="clear" color="dark" expand="full" (click)="backToSendingOTP()" [disabled]="isBackable"><ion-icon  src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon> &nbsp;&nbsp;&nbsp;&nbsp; {{ 'APP.back' | translate }} ({{ countDownTimer }})</ion-button>
+  </form>
+
+  <form #form="ngForm" (ngSubmit)="register(form)" method="post" class="ion-padding" *ngIf="isPinVerified">
+    <ion-item>
+      <ion-text color="danger">
+        <h5 class="ion-text-center">សូមវាយបញ្ចូលពាក្យសំងាត់ថ្មីរបស់លោកអ្នក</h5>
+      </ion-text>
+      <ion-label position="floating">{{ 'APP.password' | translate }}</ion-label>
+      <ion-input ngModel type="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{ 'APP.confirm_password' | translate }}</ion-label>
+      <ion-input ngModel type="password" name="confirmPassword" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" color="danger" type="submit">{{ 'APP.submit' | translate }}</ion-button>
+    <ion-button fill="clear" color="dark" expand="full" (click)="backToSendingOTP()"><ion-icon  src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon> &nbsp;&nbsp;&nbsp;&nbsp; {{ 'APP.back' | translate }}</ion-button>
+  </form>
+
+  <div id="recaptcha-container"></div>
+  
+</ion-content>

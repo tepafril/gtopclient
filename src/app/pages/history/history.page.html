@@ -1,0 +1,82 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'HISTORY_PAGE.history' | translate }}
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="changeDatePopOver($event)">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/calendar.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+  
+
+
+<ion-content>
+  <div id="map_canvas"></div>
+  <div id="over_map">
+    <ion-button size="small" shape="round" color="primary" (click)="selectDevice()">
+      {{ devicePlateNumber }}
+      <ion-icon slot="end" src="assets/themify-icons/SVG/exchange-vertical.svg"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+
+  <ion-toolbar color="light">
+
+    <ion-row class="padding-top-10">
+    
+      <ion-col size="12" class="text-center">
+        {{ from }} to {{ to }}
+      </ion-col>
+
+      <ion-col size="2" class="player-speed">
+        x{{ playerSpeed }}
+      </ion-col>
+      <ion-col size="10">
+        <ion-range [(ngModel)]="rangeCurrent" min="{{ rangeStart }}" max="{{ rangeStop }}" color="primary" mode="ios">
+          <ion-label slot="start">{{ rangeCurrent }}</ion-label>
+          <ion-label slot="end">{{ rangeStop }}</ion-label>
+        </ion-range>
+      </ion-col>
+
+      <ion-col size="12" class="text-center">
+        {{ currentFixtime }}
+      </ion-col>
+    </ion-row>
+
+    <ion-grid class="text-center">
+      
+        <ion-row>
+          <ion-col class="ion-no-padding">
+            <ion-button color="primary" [disabled]="!isEnabledDecBtn" (click)="decreasePlayerSpeed()" size="small">
+              <ion-icon src="assets/themify-icons/SVG/control-backward.svg"></ion-icon>
+            </ion-button>
+            <ion-button color="primary" (click)="play()">
+              <ion-icon *ngIf="!isPlayed && !isRepeat" src="assets/themify-icons/SVG/control-play.svg"></ion-icon>
+              <ion-icon *ngIf="isPlayed && !isRepeat" src="assets/themify-icons/SVG/control-pause.svg"></ion-icon>
+              <ion-icon *ngIf="isRepeat" src="assets/themify-icons/SVG/reload.svg"></ion-icon>
+            </ion-button>
+            <ion-button color="primary" [disabled]="!isEnabledIncBtn" (click)="increasePlayerSpeed()" size="small">
+              <ion-icon src="assets/themify-icons/SVG/control-forward.svg"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+  </ion-toolbar>
+
+</ion-footer>

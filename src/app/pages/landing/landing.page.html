@@ -1,0 +1,85 @@
+<ion-content force-overscroll="false" class="ion-full-screen">
+  
+  <video class="background-video" autoplay playsinline loop>
+    <source src="assets/videos/background-video.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+    Your browser does not support animated background.
+  </video>
+
+  <div class="page-centered-element">
+
+    <div class="content ion-hide-md-up">
+      <ion-row>
+        <ion-col>
+          <img style="width: 80%;" src="assets/gtop-logo.png">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="success" expand="full" (click)="login()">{{ 'APP.login' | translate }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" expand="full" (click)="forgetpassword()"><ion-icon src="assets/themify-icons/SVG/lock.svg"></ion-icon> &nbsp;&nbsp;&nbsp; {{ 'APP.forgot_password' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-button fill="clear" color="light" expand="full" (click)="chooseLanguage($event)">{{ 'APP.choose_language' | translate }} &nbsp;&nbsp;&nbsp; <img style="height: 18px;"  src="{{ 'APP.flag' | translate }}"></ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="content ion-hide-sm-down">
+      <ion-row>
+        <ion-col size="4"></ion-col>
+        <ion-col size="4">
+          <img style="width: 80%;" src="assets/gtop-logo.png">
+        </ion-col>
+        <ion-col size="4"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="3">
+          <ion-button color="success" expand="full" (click)="login()">{{ 'APP.login' | translate }}</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <ion-button color="primary" expand="full" (click)="forgetpassword()"><ion-icon src="assets/themify-icons/SVG/lock.svg"></ion-icon> &nbsp;&nbsp;&nbsp; {{ 'APP.forgot_password' | translate }}</ion-button>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <ion-button fill="clear" color="light" expand="full" (click)="chooseLanguage($event)">{{ 'APP.choose_language' | translate }}  &nbsp;&nbsp;&nbsp; <img style="height: 18px;" src="{{ 'APP.flag' | translate }}"></ion-button>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+    </div>
+
+    
+  </div>
+
+  <div class="lower-content">
+    <a class="gtop-link" target="_blank" href="https://gtopcambodia.com">www.gtopcambodia.com</a>
+  </div>
+
+</ion-content>
