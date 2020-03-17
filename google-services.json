@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "43903908373-03ohhicm64opbj82656v7ifakk54ib22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odadcambodia.gtopclient",
+            "certificate_hash": "d732f59920a1250a99677419a9b51f9e7074428d"
+          }
+        },
+        {
           "client_id": "43903908373-6vfjegti2fh3vl8cr4eci3qkdq8fpt9m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -29,7 +29,7 @@
     "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/image-picker": "^5.21.6",
     "@ionic-native/image-resizer": "^5.21.6",
-    "@ionic-native/launch-navigator": "^5.21.6",
+    "@ionic-native/launch-navigator": "^5.22.0",
     "@ionic-native/onesignal": "^5.22.0",
     "@ionic-native/safari-view-controller": "^5.21.6",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -107,13 +107,14 @@
       },
       "cordova-plugin-file-transfer": {},
       "info.protonet.imageresizer": {},
-      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
-        "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
-      },
       "cordova-plugin-safariviewcontroller": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-firebase-authentication": {},
-      "onesignal-cordova-plugin": {}
+      "onesignal-cordova-plugin": {},
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyBIBmwwBNnLseEpk0CRG1IkW6kBlJRMI1I",
+        "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
+      }
     },
     "platforms": [
       "browser",

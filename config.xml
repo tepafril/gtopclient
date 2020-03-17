@@ -24,7 +24,7 @@
     <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="WKWebViewOnly" value="true" />
     <edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
-        <string>We use your location for full functionality of certain app features.</string>
+        <string>GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private.</string>
     </edit-config>
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
@@ -112,14 +112,11 @@
     <plugin name="cordova-plugin-badge" spec="^0.8.8" />
     <plugin name="cordova-plugin-crop" spec="^0.4.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.6.2">
-        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
-        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private." />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private." />
     </plugin>
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="info.protonet.imageresizer" spec="^0.1.1" />
-    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^5.0.4">
-        <variable name="LOCATION_USAGE_DESCRIPTION" value="This app requires access to your location for navigation purposes" />
-    </plugin>
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.6.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.2" />
     <engine name="browser" spec="5.0.4" />
