@@ -35,7 +35,6 @@ export class GeolocationPage implements OnInit {
 
   map: GoogleMap;
   markers = [];
-  current_location_marker = 'assets/google/marker/current-location.png';
   watch: string;
   user = null;
 
@@ -238,7 +237,7 @@ export class GeolocationPage implements OnInit {
     let randomSprite = Math.floor(Math.random() * 24);
 
     let icon: MarkerIcon = {
-      url: 'assets/google/marker/' + this.deviceIcon +  '.png',
+      url: 'assets/google/marker/' + this.deviceIcon +  '/0.png',
       size: {
         width: this.deviceIconSize,
         height: this.deviceIconSize

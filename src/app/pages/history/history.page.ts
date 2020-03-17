@@ -238,7 +238,7 @@ export class HistoryPage implements OnInit {
 
 
     let icon: MarkerIcon = {
-      url: 'assets/google/marker/' + this.current_item.icon_name + '.png',
+      url: 'assets/google/marker/' + this.current_item.icon_name + '/0.png',
       size: {
         width: this.deviceIconSize,
         height: this.deviceIconSize
@@ -557,75 +557,6 @@ export class HistoryPage implements OnInit {
     return (((brng * 180 / Math.PI) + 360) % 360);
   }
 
-
-  getImageByDegree(degree = 0)
-  {
-    // console.log("getImageByDegree: is running");
-    if(degree > 0 && degree <= 97)
-    {
-      if(degree > 0 && degree <= 7)
-        return '0.png';
-      else if( degree > 7 && degree <= 22 )
-        return '15.png';
-      else if( degree > 22 && degree <= 37 )
-        return '30.png';
-      else if( degree > 37 && degree <= 52 )
-        return '45.png';
-      else if( degree > 52 && degree <= 67 )
-        return '60.png';
-      else if( degree > 67 && degree <= 82 )
-        return '75.png';
-      else if( degree > 82 && degree <= 97 )
-        return '90.png';
-    }
-    else if( degree > 97 && degree <= 187 )
-    {
-      if( degree > 97 && degree <= 112 )
-        return '105.png';
-      else if( degree > 112 && degree <= 127 )
-        return '120.png';
-      else if( degree > 127 && degree <= 142 )
-        return '135.png';
-      else if( degree > 142 && degree <= 157 )
-        return '150.png';
-      else if( degree > 157 && degree <= 172 )
-        return '165.png';
-      else if( degree > 172 && degree <= 187 )
-        return '180.png';
-    }
-    else if( degree > 187 && degree <= 277 )
-    {
-      if( degree > 187 && degree <= 202 )
-        return '195.png';
-      else if( degree > 202 && degree <= 217 )
-        return '210.png';
-      else if( degree > 217 && degree <= 232 )
-        return '225.png';
-      else if( degree > 232 && degree <= 247 )
-        return '240.png';
-      else if( degree > 247 && degree <= 262 )
-        return '255.png';
-      else if( degree > 262 && degree <= 277 )
-        return '270.png';
-    }
-    else if( degree > 277 && degree <= 360 )
-    {
-      if( degree > 277 && degree <= 292 )
-        return '285.png';
-      else if( degree > 292 && degree <= 307 )
-        return '300.png';
-      else if( degree > 307 && degree <= 322 )
-        return '315.png';
-      else if( degree > 322 && degree <= 337 )
-        return '330.png';
-      else if( degree > 337 && degree <= 352 )
-        return '345.png';
-      else
-        return '360.png';
-    }
-    else
-      return '360.png';
-  }
 
 
   isEnabledIncBtn = true;

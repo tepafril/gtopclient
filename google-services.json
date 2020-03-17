@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "43903908373",
+    "firebase_url": "https://gtop-cambodia.firebaseio.com",
+    "project_id": "gtop-cambodia",
+    "storage_bucket": "gtop-cambodia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43903908373:android:89cdae3ea6c16566ffec1c",
+        "android_client_info": {
+          "package_name": "com.odadcambodia.gtopclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43903908373-6vfjegti2fh3vl8cr4eci3qkdq8fpt9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.odadcambodia.gtopclient",
+            "certificate_hash": "2443b2d041e67bfd8d43b41b47369911b29246eb"
+          }
+        },
+        {
+          "client_id": "43903908373-q8aujiorfa2tfvglqopt30evkqvn4fvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjpe-L7Lwu8FRc3ul5gV37QvN4i3v8tNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43903908373-q8aujiorfa2tfvglqopt30evkqvn4fvh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "43903908373-16nv66q4nlain8372uj9ma3lgp6sv5te.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.odadcambodia.gtopclient"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
