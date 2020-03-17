@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@ionic-native/badge": "^5.21.6",
+    "@ionic-native/camera": "^5.22.0",
     "@ionic-native/core": "^5.21.6",
     "@ionic-native/crop": "^5.21.6",
     "@ionic-native/file-transfer": "^5.21.6",
@@ -43,6 +44,7 @@
     "cordova-ios": "^5.1.1",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-crop": "^0.4.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-dialogs": "^2.0.2",
@@ -114,7 +116,8 @@
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyBIBmwwBNnLseEpk0CRG1IkW6kBlJRMI1I",
         "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
-      }
+      },
+      "cordova-plugin-camera": {}
     },
     "platforms": [
       "browser",

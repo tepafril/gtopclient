@@ -152,5 +152,13 @@
     "variables": {
       "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyBIBmwwBNnLseEpk0CRG1IkW6kBlJRMI1I"
     }
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera@4.1.0"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

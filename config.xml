@@ -23,9 +23,6 @@
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyCOpBhQaZX-b7y-N0wztLBDL9u_qrhcEqY" />
     <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="WKWebViewOnly" value="true" />
-    <edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
-        <string>GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private.</string>
-    </edit-config>
     <platform name="android">
         <resource-file src="google-services.json" target="app/google-services.json" />
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
@@ -53,6 +50,9 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private.</string>
+        </edit-config>
         <config-file parent="ITSAppUsesNonExemptEncryption" target="*-Info.plist">
             <false />
         </config-file>
