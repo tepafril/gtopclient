@@ -50,6 +50,7 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <resource-file src="GoogleService-Info.plist" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private.</string>
         </edit-config>
@@ -121,5 +122,4 @@
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.6.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.2" />
     <engine name="browser" spec="5.0.4" />
-    
 </widget>

@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ENDPOINT } from '../../../environments/environment';
 import { HistoryDatePickerPage } from './../history-date-picker/history-date-picker.page';
 import { StorageService } from 'src/app/services/storage.service';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
 
 import { SelectDevicePage } from '../select-device/select-device.page';
 import { TranslateService } from '@ngx-translate/core';
@@ -62,7 +63,7 @@ export class HistoryPage implements OnInit {
   historyJson :any;
 
 
-  deltaConst = 100;
+  deltaConst = 50;
   numDeltas = 0;
   delay = 1000; //milliseconds
   inc = 0;
@@ -91,6 +92,8 @@ export class HistoryPage implements OnInit {
   deviceIcon;
   deviceIconSize;
   devicePlateNumber;
+
+  parkingJson = [];
   
   
   statusColor = {
@@ -122,6 +125,7 @@ export class HistoryPage implements OnInit {
   }
 
   constructor(
+    private launchNavigator: LaunchNavigator,
     private http: HttpClient,
     private navCtrl: NavController,
     private popoverController: PopoverController,
@@ -153,7 +157,9 @@ export class HistoryPage implements OnInit {
 
  
   loadMap()
-  {  
+  { 
+     
+
     this.map = GoogleMaps.create('map_canvas', {
       camera: {
         target: {
@@ -162,6 +168,19 @@ export class HistoryPage implements OnInit {
         },
         zoom: 7,
         // tilt: 30
+      },
+      preferences: {
+        zoom: {
+          minZoom: 6,
+          maxZoom: 18
+        },
+        building: true
+      },
+      controls: {
+        compass: false,
+      },
+      gestures: {
+        rotate: false
       }
     });
     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
@@ -180,6 +199,7 @@ export class HistoryPage implements OnInit {
         this.init().subscribe(data => {
             let response:any = data;
             this.historyJson = response.positions;
+            this.parkingJson = JSON.parse(response.parking);
             this.rangeStop = this.historyJson.length;
           },error => {
             console.log(error);
@@ -203,6 +223,9 @@ export class HistoryPage implements OnInit {
   }
 
   drivePath:Polyline = null;
+  startMarker: Marker;
+  finishMarker: Marker;
+  parkingMarker:any[] = [];
   getData(){
 
     let driveCoordinates = [];
@@ -228,11 +251,49 @@ export class HistoryPage implements OnInit {
       this.marker.remove();
       this.marker = null;
     }
+    if( this.parkingMarker.length > 0 ){
+      for( let i = 0; i < this.parkingMarker.length; i++ )
+      {
+        this.parkingMarker[i].remove();
+      }
+    }
+    if( this.startMarker != null )
+    {
+      this.startMarker.remove();
+      this.startMarker = null;
+    }
+    if( this.finishMarker != null )
+    {
+      this.finishMarker.remove();
+      this.finishMarker = null;
+    }
+
+    for( let i = 0; i < this.parkingJson.length; i++ )
+    {
+      if( this.showParkSign )
+      {
+        let parkingIcon: MarkerIcon = {
+          url: 'assets/google/marker/park-sign.png',
+          size: {
+            width: 40,
+            height: 57
+          }
+        };
+        let parking: Marker = this.map.addMarkerSync({
+          icon: parkingIcon,
+          position: {
+            lat: this.parkingJson[i].latitude,
+            lng: this.parkingJson[i].longitude
+          },
+        });
+        this.parkingMarker.push(parking);
+      }
+    }
       
     this.drivePath = this.map.addPolylineSync({
       points: driveCoordinates,
-      color: '#FF0000',
-      width: 2,
+      color: '#1877f2',
+      width: 5,
       geodesic: true,
     });
 
@@ -252,6 +313,44 @@ export class HistoryPage implements OnInit {
       },
     });
     this.marker.setIconAnchor(this.deviceIconSize/2, this.deviceIconSize/2);
+
+    if( !this.showParkSign )
+    {
+      let startIcon: MarkerIcon = {
+        url: 'assets/google/marker/start-sign.png',
+        size: {
+          width: 40,
+          height: 57
+        }
+      };
+      this.startMarker = this.map.addMarkerSync({
+        icon: startIcon,
+        position: {
+          lat: this.historyJson[0].latitude,
+          lng: this.historyJson[0].longitude
+        },
+      });
+    }
+
+
+    if( !this.showParkSign )
+    {
+      let countHistoryJson = this.historyJson.length - 1;
+      let finishIcon: MarkerIcon = {
+        url: 'assets/google/marker/stop-sign.png',
+        size: {
+          width: 40,
+          height: 57
+        }
+      };
+      this.finishMarker = this.map.addMarkerSync({
+        icon: finishIcon,
+        position: {
+          lat: this.historyJson[countHistoryJson].latitude,
+          lng: this.historyJson[countHistoryJson].longitude
+        },
+      });
+    }
 
 
     let traccar_attributes = JSON.parse(this.historyJson[this.rangeCurrent].attributes);
@@ -370,6 +469,8 @@ export class HistoryPage implements OnInit {
     let today_string = { from: from_date_str, to: to_date_str };
     return today_string;
   }
+
+  
 
 
   play(){
@@ -537,8 +638,8 @@ export class HistoryPage implements OnInit {
         {
           this.recursiveExec();
         }
-        // let traccar_date = this.readableLocalDate2(this.historyJson[this.rangeCurrent].fixtime) + ' ' + this.readableLocalTime2(this.historyJson[this.rangeCurrent].fixtime);
-        // this.currentFixtime = traccar_date;
+        let traccar_date = this.readableLocalDate2(this.historyJson[this.rangeCurrent].fixtime) + ' ' + this.readableLocalTime2(this.historyJson[this.rangeCurrent].fixtime);
+        this.currentFixtime = traccar_date;
       }
 
     // }
@@ -710,6 +811,7 @@ export class HistoryPage implements OnInit {
 
           let response:any = data;
           this.historyJson = response.positions;
+          this.parkingJson = JSON.parse(response.parking);
           this.rangeStop = this.historyJson.length;
         },error => {
           console.log(error);
@@ -745,40 +847,6 @@ export class HistoryPage implements OnInit {
     await this.loading.present();
   }
 
-
-
-  private ZoomControl(controlDiv, map, infoBox)
-  {
-  
-    // Creating divs & styles for custom zoom control
-    controlDiv.style.padding = '5px';
-  
-    // Set CSS for the control wrapper
-    var controlWrapper = document.createElement('div');
-    controlWrapper.style.cursor = 'pointer';
-    controlWrapper.style.textAlign = 'center';
-    controlWrapper.style.width = '40px'; 
-    controlWrapper.style.height = '48px';
-    controlWrapper.style.marginBottom = '80px';
-    controlDiv.appendChild(controlWrapper);
-      
-    // Set CSS for the viewDialog
-    var viewButton = document.createElement('div');
-    viewButton.style.width = '40px'; 
-    viewButton.style.height = '40px';
-    viewButton.style.marginBottom = '2px';
-    /* Change this to be the .png image you want to use */
-    viewButton.style.backgroundImage = 'url("assets/google/viewBtn.png")';
-    controlWrapper.appendChild(viewButton);
-    
-    // Setup the click event listener - zoomOut
-    google.maps.event.addDomListener(viewButton, 'click', () => {
-      this.infoBox.setVisible( !this.infoBox.getVisible() );
-    });  
-  
-      
-  }
-
   async selectDevice()
   {
     const assignItemModal = await this.modalController.create({
@@ -809,6 +877,7 @@ export class HistoryPage implements OnInit {
           data => {
             let response:any = data;
             this.historyJson = response.positions;
+            this.parkingJson = JSON.parse(response.parking);
             this.rangeStop = this.historyJson.length;
           },error => {
             console.log(error);
@@ -834,5 +903,142 @@ export class HistoryPage implements OnInit {
     });
 
     return await assignItemModal.present();
+  }
+
+  toggleTraffic = false;
+  toggleSatellite = false;
+  followCamera = false;
+  controlNavigateDevice()
+  {
+    this.map.animateCamera({
+      target: {lat: this.historyJson[this.rangeCurrent].latitude, lng: this.historyJson[this.rangeCurrent].longitude},
+      duration: 750
+    });
+  }
+  controlNavigateStartPoint()
+  {
+    this.map.animateCamera({
+      target: {lat: this.historyJson[0].latitude, lng: this.historyJson[0].longitude},
+      duration: 750
+    });
+  }
+  controlNavigateFinishPoint()
+  {
+    let countHistoryJson = this.historyJson.length - 1;
+    this.map.animateCamera({
+      target: {lat: this.historyJson[countHistoryJson].latitude, lng: this.historyJson[countHistoryJson].longitude},
+      duration: 750
+    });
+  }
+
+  
+  controlTrafficLayer()
+  {
+    this.toggleTraffic = !this.toggleTraffic;
+    this.map.setTrafficEnabled( this.toggleTraffic );
+  }
+  controlSatelliteLayer()
+  {
+    this.toggleSatellite = !this.toggleSatellite;
+    if(this.toggleSatellite == false){
+      this.map.setMapTypeId(GoogleMapsMapTypeId["ROADMAP"]);
+    }
+    else{
+      this.map.setMapTypeId(GoogleMapsMapTypeId["HYBRID"]);
+    }
+  }
+
+  controlZoomIn()
+  {
+    this.map.animateCameraZoomIn().then(()=>{});
+  }
+  controlZoomOut()
+  {
+    this.map.animateCameraZoomOut().then(()=>{});
+  }
+
+  showParkSign = false;
+  controlToggleShowParkSign()
+  {
+    this.showParkSign = !this.showParkSign;
+    if(this.showParkSign)
+    {
+      for( let i = 0; i < this.parkingJson.length; i++ )
+      {
+        let parkingIcon: MarkerIcon = {
+          url: 'assets/google/marker/park-sign.png',
+          size: {
+            width: 40,
+            height: 57
+          }
+        };
+        let parking: Marker = this.map.addMarkerSync({
+          icon: parkingIcon,
+          position: {
+            lat: this.parkingJson[i].latitude,
+            lng: this.parkingJson[i].longitude
+          },
+        });
+        this.parkingMarker.push(parking);
+      }
+
+      this.startMarker.remove();
+      this.startMarker = null;
+  
+      this.finishMarker.remove();
+      this.finishMarker = null;
+    }
+    else
+    {
+      for( let i = 0; i < this.parkingMarker.length; i++ )
+      {
+        this.parkingMarker[i].remove();
+      }
+      let startIcon: MarkerIcon = {
+        url: 'assets/google/marker/start-sign.png',
+        size: {
+          width: 40,
+          height: 57
+        }
+      };
+      this.startMarker = this.map.addMarkerSync({
+        icon: startIcon,
+        position: {
+          lat: this.historyJson[0].latitude,
+          lng: this.historyJson[0].longitude
+        },
+      });
+  
+  
+      let countHistoryJson = this.historyJson.length - 1;
+      let finishIcon: MarkerIcon = {
+        url: 'assets/google/marker/stop-sign.png',
+        size: {
+          width: 40,
+          height: 57
+        }
+      };
+      this.finishMarker = this.map.addMarkerSync({
+        icon: finishIcon,
+        position: {
+          lat: this.historyJson[countHistoryJson].latitude,
+          lng: this.historyJson[countHistoryJson].longitude
+        },
+      });
+    }
+  }
+
+  controlGoogleDirection()
+  {
+    // let options: LaunchNavigatorOptions = {
+    //   start: [this.userPosition.lat,this.userPosition.lng],
+    //   app: this.launchNavigator.APP.GOOGLE_MAPS
+    // };
+    // this.launchNavigator.navigate([this.devicePosition.lat,this.devicePosition.lng],options)
+    //   .then(success =>{
+    //     console.log(success);
+    //   },error=>{
+    //     console.log(error);
+    // });
   }
 }

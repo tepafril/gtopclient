@@ -158,6 +158,10 @@ const routes: Routes = [
     path: 'manage-group-single/:id/:name',
     loadChildren: () => import('./pages/manage-group-single/manage-group-single.module').then( m => m.ManageGroupSinglePageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'street-view',
+    loadChildren: () => import('./pages/street-view/street-view.module').then( m => m.StreetViewPageModule)
   }
 ];
 

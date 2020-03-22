@@ -23,7 +23,50 @@
 
 
 <ion-content>
-  <div id="map_canvas"></div>
+  <div id="map_canvas">
+
+    <ion-fab vertical="top" horizontal="start" slot="fixed">
+
+      <ion-fab-button color="primary" size="small" class="marginBottom5" (click)="controlNavigateDevice()">
+        <ion-icon name="locate-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="success" size="small" class="marginBottom5" (click)="controlNavigateStartPoint()">
+        <ion-label>Start</ion-label>
+      </ion-fab-button>
+
+      <ion-fab-button color="danger" size="small" class="marginBottom5" (click)="controlNavigateFinishPoint()">
+        <ion-label>Stop</ion-label>
+      </ion-fab-button>
+
+      <ion-fab-button color="primary" size="small" class="marginBottom5" (click)="controlToggleShowParkSign()" *ngIf="showParkSign">
+        <ion-label><b>P</b></ion-label>
+      </ion-fab-button>
+
+      <ion-fab-button color="primary" size="small" class="marginBottom5 camera-disabled" (click)="controlToggleShowParkSign()" *ngIf="!showParkSign">
+        <ion-label><b>P</b></ion-label>
+      </ion-fab-button>
+
+    </ion-fab>
+
+
+    <ion-fab vertical="center" horizontal="end" slot="fixed">
+      <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlSatelliteLayer()">
+        <ion-icon name="layers-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlTrafficLayer()">
+        <ion-icon name="trail-sign-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="" size="small" class="marginBottom5" (click)="controlZoomIn()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="" size="small" class="marginBottom5" (click)="controlZoomOut()">
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </div>
+
   <div id="over_map">
     <ion-button size="small" shape="round" color="primary" (click)="selectDevice()">
       {{ devicePlateNumber }}

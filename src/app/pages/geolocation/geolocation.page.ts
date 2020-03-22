@@ -108,6 +108,7 @@ export class GeolocationPage implements OnInit {
   isMapHidden = true;
   toggleTraffic = false;
   toggleSatellite = false;
+  followCamera = false;
   spriteNameArr = [
     "0",  "15",  "30",  "45",  "60",  "75",  "90",  "105",  "120",  "135",  "150",  "165",  "180",  "195",  "210",  "225",  "240",  "255",  "270",  "285",  "300",  "315",  "330",  "345",  "360"
   ];
@@ -130,8 +131,15 @@ export class GeolocationPage implements OnInit {
           lng: 104.8941368
         },
         zoom: 7,
-        // tilt: 30
-      }
+        tilt: 30,
+      },
+      preferences: {
+        zoom: {
+          minZoom: 6,
+          maxZoom: 18
+        },
+        building: true
+      },
     });
     
     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
@@ -256,16 +264,30 @@ export class GeolocationPage implements OnInit {
         },
         anchor: [this.deviceIconSize/2, this.deviceIconSize/2],
       });
+
+
+      this.map.setOptions({
+        camera: {
+          target: [
+            { lat: this.devicePosition.lat, lng: this.devicePosition.lng }
+          ]
+        }
+      });
+      
+
     }
     this.deviceMarker.setIconAnchor(this.deviceIconSize/2, this.deviceIconSize/2);
 
-    this.map.setOptions({
-      camera: {
-        target: [
-          { lat: this.devicePosition.lat, lng: this.devicePosition.lng }
-        ]
-      }
-    });
+    if( this.followCamera )
+    {
+      this.map.setOptions({
+        camera: {
+          target: [
+            { lat: this.devicePosition.lat, lng: this.devicePosition.lng }
+          ]
+        }
+      });
+    }
     
     this.deviceMarker.setIcon(icon);
   }
@@ -317,7 +339,7 @@ export class GeolocationPage implements OnInit {
     let traccar_speed = (Math.abs( this.httpResponse.position.speed * 1.852)).toFixed(2) + this.lang.instant('APP.kmh') + '&nbsp;';
     let traccar_battery = Math.abs(traccar_attributes["batteryLevel"]);
     let traccar_ignition = this.lang.instant('APP.' + this.ignitionStatus[traccar_attributes["ignition"]]);
-    let traccar_trip = (traccar_attributes["totalDistance"]/1000).toFixed(2) + this.lang.instant('APP.km');
+    let traccar_trip = (traccar_attributes["totalDistance"]/1000).toFixed(0) + this.lang.instant('APP.km');
     let traccar_hours = (traccar_attributes["hours"]/3.6e+6).toFixed(2) + this.lang.instant('APP.h');
     let traccar_date = this.readableLocalDate(this.httpResponse.position.fixtime) + ' ' + this.readableLocalTime(this.httpResponse.position.fixtime);
     
@@ -429,40 +451,12 @@ export class GeolocationPage implements OnInit {
     
 
     // Prevent closing when Clicking on map
-    this.infoBox.on(GoogleMapsEvent.INFO_CLOSE).subscribe(()=>{
-      setTimeout(()=>{
-        this.infoBox.open(this.deviceMarker);
-      }, 50);
-    });
-    // this.infoBox.on(GoogleMapsEvent.INFO_OPEN).subscribe(()=>{
+    // this.infoBox.on(GoogleMapsEvent.INFO_CLOSE).subscribe(()=>{
     //   setTimeout(()=>{
-    //     if(this.isMapHidden)
-    //     {
-    //       this.isMapHidden = !this.isMapHidden;
-    //       this.loading.dismiss();
-    //     }
+    //     this.infoBox.open(this.deviceMarker);
     //   }, 50);
     // });
     
-
-    // this.infoBox = new InfoBox({
-    //   content: infoBoxContent,
-    //   disableAutoPan: false,
-    //   maxWidth: 0,
-    //   pixelOffset: new google.maps.Size(-160, -Math.abs(this.lang.instant('APP.GeolocationInfoBoxPixelOffset'))),
-    //   zIndex: null,
-    //   boxStyle: { 
-    //     width: "320px",
-    //     height: this.lang.instant('APP.GeolocationInfoBoxHeight')
-    //   },
-    //   closeBoxMargin: "10px 2px 2px 2px",
-    //   closeBoxURL: "",
-    //   infoBoxClearance: new google.maps.Size(1, 1),
-    //   isHidden: false,
-    //   pane: "floatPane",
-    //   enableEventPropagation: false
-    // });
-    // this.infoBox.open(this.map, this.deviceMarker);
   }
 
   instantiateGoogleMap()
@@ -481,9 +475,6 @@ export class GeolocationPage implements OnInit {
        }
     };
     this.map = GoogleMaps.create('map_canvas', mapOptions);
-    // this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
-    //   alert('clicked');
-    // });
   }
 
   controlZoomIn()
@@ -506,6 +497,29 @@ export class GeolocationPage implements OnInit {
       },error=>{
         console.log(error);
     });
+  }
+  controlFollowCamera()
+  {
+    this.followCamera = !this.followCamera;
+    if(this.followCamera)
+    {
+      this.map.setOptions({
+        camera: {
+          target: [
+            { lat: this.devicePosition.lat, lng: this.devicePosition.lng }
+          ]
+        }
+      });
+    }
+  }
+  toggleInfoBox = true;
+  controlToggleInfoBox()
+  {
+    this.toggleInfoBox = !this.toggleInfoBox;
+    if(this.toggleInfoBox)
+      this.infoBox.open(this.deviceMarker);
+    else
+      this.infoBox.close();
   }
   controlNavigateDevice()
   {
@@ -590,7 +604,8 @@ export class GeolocationPage implements OnInit {
   }
 
 
-  calculateDistance(latlngA, latlngB, isMiles) {
+  calculateDistance(latlngA, latlngB, isMiles)
+  {
     const squared = x => x * x;
     const toRad = x => (x * Math.PI) / 180;
     const R = 6371; // Earth’s mean radius in km

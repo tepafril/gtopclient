@@ -24,15 +24,27 @@
         <ion-icon name="navigate-circle-outline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="primary" size="small" class="marginBottom5" (click)="controlNavigateDevice()">
-        <ion-icon name="location-outline"></ion-icon>
+        <ion-icon name="locate-outline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="warning" size="small" class="marginBottom5" (click)="controlGoogleDirection()">
         <ion-icon name="map-outline"></ion-icon>
       </ion-fab-button>
+
+      <ion-fab-button color="tertiary" size="small" class="marginBottom5" (click)="controlFollowCamera()" *ngIf="!followCamera">
+        <ion-icon name="eye-off-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="tertiary" size="small" class="marginBottom5" (click)="controlFollowCamera()" *ngIf="followCamera">
+        <ion-icon name="eye-outline"></ion-icon>
+      </ion-fab-button>
+      
     </ion-fab>
 
 
     <ion-fab vertical="center" horizontal="end" slot="fixed">
+      <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlToggleInfoBox()">
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      </ion-fab-button>
       <ion-fab-button color="medium" size="small" class="marginBottom5" (click)="controlSatelliteLayer()">
         <ion-icon name="layers-outline"></ion-icon>
       </ion-fab-button>
