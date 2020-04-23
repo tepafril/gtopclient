@@ -1,0 +1,59 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'DISARM_PAGE.arm_disarm' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="map_canvas">
+    <ion-fab vertical="top" horizontal="start" slot="fixed">
+
+      <ion-fab-button color="success" size="small" class="marginBottom5" (click)="enableResizableMarker()" *ngIf="isResizable">
+        <ion-icon name="move-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="success" size="small" class="marginBottom5 disabled" *ngIf="!isResizable">
+        <ion-icon name="move-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="primary" size="small" class="marginBottom5" (click)="enableResizableMarker()" *ngIf="!isResizable">
+        <ion-icon name="resize-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="primary" size="small" class="marginBottom5 disabled" *ngIf="isResizable">
+        <ion-icon name="resize-outline"></ion-icon>
+      </ion-fab-button>
+
+    </ion-fab>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+
+  <ion-toolbar color="light">
+    <ion-grid class="text-center">
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <h1>
+              {{ distanceSize }} meter
+            </h1>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+</ion-footer>

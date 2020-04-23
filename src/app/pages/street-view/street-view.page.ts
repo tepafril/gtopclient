@@ -59,11 +59,11 @@ export class StreetViewPage implements OnInit {
 
     // Move the map camera when the panorama camera has been moved.
     this.panorama.on(GoogleMapsEvent.PANORAMA_LOCATION_CHANGE).subscribe((params:any[]) => {
-      let location: StreetViewLocation = params[0];
-      this.map.animateCamera({
-        target: location.latLng,
-        duration: 1000
-      });
+      // let location: StreetViewLocation = params[0];
+      // this.map.animateCamera({
+      //   target: location.latLng,
+      //   duration: 1000
+      // });
     });
 
     // Change the marker bearing when the panorama camera is panning.

@@ -241,7 +241,7 @@ export class HistoryPage implements OnInit {
         target: driveCoordinates
       }
     });
-      
+
     if(this.drivePath != null)
     {
       // this.drivePath.setPoints(this.driveCoordinates);

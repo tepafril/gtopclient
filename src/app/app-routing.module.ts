@@ -161,7 +161,18 @@ const routes: Routes = [
   },
   {
     path: 'street-view',
-    loadChildren: () => import('./pages/street-view/street-view.module').then( m => m.StreetViewPageModule)
+    loadChildren: () => import('./pages/street-view/street-view.module').then( m => m.StreetViewPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'geofence',
+    loadChildren: () => import('./pages/geofence/geofence.module').then( m => m.GeofencePageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'polygonfence',
+    loadChildren: () => import('./pages/polygonfence/polygonfence.module').then( m => m.PolygonfencePageModule),
+    canActivate: [AuthGuard]
   }
 ];
 
