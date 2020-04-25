@@ -606,6 +606,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.3",
     "info.protonet.imageresizer": "0.1.1",
     "onesignal-cordova-plugin": "2.8.4",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
+    "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.0"
   };
 });
