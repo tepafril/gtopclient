@@ -1,3 +1,34 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="menu-content">
+    <ion-menu side="start" menuId="mainMenu" contentId="menu-content">
+      <ion-header no-border>
+        <ion-toolbar color="primary" mode="ios">
+          <ion-title>
+            <ion-img alt="logo" style="height: 28px;" src="assets/gps-logo.png"></ion-img>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item button routerLink="/dashboard/tabs/home">
+            <ion-icon src="assets/themify-icons/SVG/home.svg"></ion-icon>
+            <ion-label style="text-transform: capitalize;">{{ 'APP.home' | translate }}</ion-label>
+          </ion-item>
+          <ion-item button routerLink="/dashboard/tabs/traffic">
+            <ion-icon src="assets/themify-icons/SVG/video-camera.svg"></ion-icon>
+            <ion-label style="text-transform: capitalize;">{{ 'APP.traffic' | translate }}</ion-label>
+          </ion-item>
+          <ion-item button routerLink="/dashboard/tabs/support">
+            <ion-icon src="assets/themify-icons/SVG/headphone-alt.svg"></ion-icon>
+            <ion-label style="text-transform: capitalize;">{{ 'APP.support' | translate }}</ion-label>
+          </ion-item>
+          <ion-item button routerLink="/dashboard/tabs/profile">
+            <ion-icon src="assets/themify-icons/SVG/user.svg"></ion-icon>
+            <ion-label style="text-transform: capitalize;">{{ 'APP.profile' | translate }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="menu-content" [swipeGesture]="false"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

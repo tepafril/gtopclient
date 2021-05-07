@@ -1,10 +1,6 @@
 <ion-header no-border>
   <ion-toolbar  color="primary" mode="ios">
 
-    <div slot="start">
-      <ion-img alt="logo" style="height: 28px; width: 90px;" src="assets/gps-logo.png"></ion-img>
-    </div>
-
       <ion-title>
         {{ 'APP.home' | translate }}
       </ion-title>
@@ -18,7 +14,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-no-padding background-gray">
+<ion-content class="ion-no-padding">
 
 
     <ion-grid class="ion-no-padding header-container">
@@ -31,8 +27,8 @@
       </ion-row>
 
 
-      <ion-row class="button-1">
-        <ion-col class="" size="3" routerLink="/geolocation">
+      <ion-row class="button-1 ion-hide-lg-up">
+        <ion-col class="" size="3" routerLink="{{routerLinkGeolocation}}">
           <img src="{{ 'ASSET.geolocation' | translate }}">
         </ion-col>
 
@@ -49,11 +45,34 @@
         </ion-col>
       </ion-row>
 
+
+      <ion-row class="button-1 ion-hide-md-down">
+        <ion-col class="" size="2"></ion-col>
+
+        <ion-col class="" size="2" routerLink="{{routerLinkGeolocation}}">
+          <img src="{{ 'ASSET.geolocation' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="2" routerLink="/history">
+          <img src="{{ 'ASSET.history' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="2" routerLink="/engine">
+          <img src="{{ 'ASSET.engine' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="2" routerLink="/device">
+          <img src="{{ 'ASSET.device' | translate }}">
+        </ion-col>
+
+        <ion-col class="" size="2"></ion-col>
+      </ion-row>
+
     </ion-grid>
 
 
 
-    <ion-grid class="ion-no-padding padding-5">
+    <ion-grid class="ion-no-padding padding-top-5">
         <ion-row class="button-2 ion-hide-lg-up">
 
           <ion-col button class="" size="3" routerLink="/disarm">
@@ -88,11 +107,11 @@
             <img src="{{ 'ASSET.icon' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="3" routerLink="/geofence">
+          <ion-col class="disabled" size="3">
             <img src="{{ 'ASSET.geofence' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="3" routerLink="/polygonfence">
+          <ion-col class="disabled" size="3">
             <img src="{{ 'ASSET.polygonfence' | translate }}">
           </ion-col>
 
@@ -100,7 +119,7 @@
             <img src="{{ 'ASSET.group' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="3" routerLink="/street-view">
+          <ion-col class="disabled" size="3">
             <img src="{{ 'ASSET.fuel' | translate }}">
           </ion-col>
         </ion-row>
@@ -139,11 +158,11 @@
             <img src="{{ 'ASSET.icon' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="2" routerLink="/geofence">
+          <ion-col class="disabled" size="2">
             <img src="{{ 'ASSET.geofence' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="2" routerLink="/polygonfence">
+          <ion-col class="disabled" size="2">
             <img src="{{ 'ASSET.polygonfence' | translate }}">
           </ion-col>
 
@@ -151,7 +170,7 @@
             <img src="{{ 'ASSET.group' | translate }}">
           </ion-col>
 
-          <ion-col class="" size="2" routerLink="/street-view">
+          <ion-col class="disabled" size="2">
             <img src="{{ 'ASSET.fuel' | translate }}">
           </ion-col>
         </ion-row>
@@ -160,7 +179,7 @@
 
 
      
-    <ion-slides [options]="sliderConfig" >
+    <!-- <ion-slides [options]="sliderConfig" >
       <ion-slide>
           <ion-card class="ion-no-padding">  
             <ion-card-content class="ion-no-padding">
@@ -177,7 +196,7 @@
           </ion-card>
       </ion-slide>
 
-    </ion-slides>
+    </ion-slides> -->
  
 
 </ion-content>

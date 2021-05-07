@@ -1,0 +1,33 @@
+<ion-header no-border>
+  <ion-toolbar  color="primary" mode="ios">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon class="bell-button" src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ 'APP.geolocation' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+  
+
+
+<ion-content>
+  <div #map id="map"></div>
+  <div id="over_map">
+    <ion-button size="small" shape="round" color="primary" (click)="prevDevice()" disabled={{disable_next_prev}}>
+      <ion-icon src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+    </ion-button>
+    <ion-button size="small" shape="round" color="primary" (click)="selectDevice()">
+      {{ devicePlateNumber }}
+      <ion-icon slot="end" src="assets/themify-icons/SVG/exchange-vertical.svg"></ion-icon>
+    </ion-button>
+    <ion-button size="small" shape="round" color="primary" (click)="nextDevice()" disabled={{disable_next_prev}}>
+      <ion-icon src="assets/themify-icons/SVG/arrow-right.svg"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

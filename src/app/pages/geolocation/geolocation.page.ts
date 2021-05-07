@@ -179,23 +179,129 @@ export class GeolocationPage implements OnInit {
 
 
   locateDevice(){
-    this.preparingRequest(this.current_item.deviceid).subscribe(res => {
+
+    let selectedItemIds = [];
+    
+    for( let i = 0; i < this.selectedItems.length; i++ )
+    {
+      if(this.selectedItems[i].deviceid)
+        selectedItemIds.push(this.selectedItems[i].deviceid);
+      else
+        selectedItemIds.push(this.selectedItems[i].device.id);
+    }
+    if((selectedItemIds.length)<=0)
+    {
+      if(this.current_item.deviceid)
+      {
+        selectedItemIds.push(this.current_item.deviceid);
+        console.log("this.current_item.deviceid");
+      } 
+      else
+      {
+        selectedItemIds.push(this.current_item.device.id);
+        console.log("this.current_item.device.id");
+      }
+    }
+
+    this.preparingRequest(selectedItemIds).subscribe(res => {
       this.httpResponse = res;
     },err => {
       this.loading.dismiss();
     },()=>{
 
       // Start Locating User
+      // this.locateUser();
+
+      // this.devicePosition.lat = this.httpResponse.position.latitude;
+      // this.devicePosition.lng = this.httpResponse.position.longitude;
+
+      // this.drawDeviceMarker();
+      // this.drawDevicePath();
+      // this.drawInfoBox();
+      // this.watchDevicePositionInc++;
+      // this.loading.dismiss();
+
+
+
+
+      // Start Locating User
       this.locateUser();
 
-      this.devicePosition.lat = this.httpResponse.position.latitude;
-      this.devicePosition.lng = this.httpResponse.position.longitude;
+      let devices = this.httpResponse;
 
-      this.drawDeviceMarker();
+      let devices_length = Object.keys(devices).length;
+
+      if( devices_length > 1 ){
+        this.disable_next_prev = false;
+      }
+      else{
+        this.disable_next_prev = true;
+      }
+
+      this.instantiateGoogleMap(); // Run only once using watchPositionInc
+
+      let firstDevice = 0;
+      
+      var latlngbounds = new google.maps.LatLngBounds();
+
+
+      let device_index_array = [];
+      let current_item_id = 0;
+
+      for(var device in devices) {
+
+        device_index_array.push( device );
+
+        if(devices[device].position)
+        {
+          if( Object.keys(this.watchDevicePositionInc).length < devices_length )
+          {
+            this.watchDevicePositionInc[device] = 0;
+          }
+          else{
+            this.watchDevicePositionInc[device] = this.watchDevicePositionInc[device] + 1;
+          }
+          this.drawDeviceMarker(devices[device]);
+          // if( firstDevice == 0 )
+          // {
+          //   this.devicePosition.lat = devices[device].position.latitude;
+          //   this.devicePosition.lng = devices[device].position.longitude;
+            // if(this.current_item.deviceid)
+            //   this.current_item = devices[device];
+          // }
+          firstDevice++;
+          this.instantiateMap++;
+          
+          if(this.setMapCenter == 0){
+            let loc = new google.maps.LatLng(devices[device].position.latitude, devices[device].position.longitude);
+            latlngbounds.extend(loc);
+          }
+        }
+      }
+
+      if(this.current_item.deviceid)
+        current_item_id = this.current_item.deviceid;
+      else
+        current_item_id = this.current_item.device.id;
+
+      for(var i=0; i<device_index_array.length; i++)
+      {
+        if( device_index_array[i] == current_item_id )
+        {
+          this.current_item = devices[device_index_array[i]];
+          this.devicePosition.lat = devices[device_index_array[i]].position.latitude;
+          this.devicePosition.lng = devices[device_index_array[i]].position.longitude;
+        }
+      }
+
+      if(this.setMapCenter == 0){
+        this.map.fitBounds(latlngbounds);
+      }
+      this.setMapCenter++;
+      
       this.drawDevicePath();
       this.drawInfoBox();
-      this.watchDevicePositionInc++;
-      this.loading.dismiss();
+      // this.loading.dismiss();
     });
   }
 
@@ -203,6 +309,7 @@ export class GeolocationPage implements OnInit {
   locateUser()
   {
     this.geolocation.getCurrentPosition().then(position=>{
+      console.log(position);
       if(position)
       {
         this.userPosition.lat = position.coords.latitude;

@@ -438,7 +438,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-split-pane contentId=\"menu-content\">\n    <ion-menu side=\"start\" menuId=\"mainMenu\" contentId=\"menu-content\">\n      <ion-header no-border>\n        <ion-toolbar color=\"primary\" mode=\"ios\">\n          <ion-title>\n            <ion-img alt=\"logo\" style=\"height: 28px;\" src=\"assets/gps-logo.png\"></ion-img>\n          </ion-title>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-item button routerLink=\"/dashboard/tabs/home\">\n            <ion-icon src=\"assets/themify-icons/SVG/home.svg\"></ion-icon>\n            <ion-label style=\"text-transform: capitalize;\">{{ 'APP.home' | translate }}</ion-label>\n          </ion-item>\n          <ion-item button routerLink=\"/dashboard/tabs/traffic\">\n            <ion-icon src=\"assets/themify-icons/SVG/video-camera.svg\"></ion-icon>\n            <ion-label style=\"text-transform: capitalize;\">{{ 'APP.traffic' | translate }}</ion-label>\n          </ion-item>\n          <ion-item button routerLink=\"/dashboard/tabs/support\">\n            <ion-icon src=\"assets/themify-icons/SVG/headphone-alt.svg\"></ion-icon>\n            <ion-label style=\"text-transform: capitalize;\">{{ 'APP.support' | translate }}</ion-label>\n          </ion-item>\n          <ion-item button routerLink=\"/dashboard/tabs/profile\">\n            <ion-icon src=\"assets/themify-icons/SVG/user.svg\"></ion-icon>\n            <ion-label style=\"text-transform: capitalize;\">{{ 'APP.profile' | translate }}</ion-label>\n          </ion-item>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"menu-content\" [swipeGesture]=\"false\"></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>");
 
 /***/ }),
 
@@ -451,7 +451,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n  <ion-list>\n    <ion-item button detail=\"false\" (click)=\"setLanguage('en')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-en.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">English</ion-label>\n    </ion-item>\n\n    <ion-item button detail=\"false\" (click)=\"setLanguage('kh')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-kh.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">Khmer</ion-label>\n    </ion-item>\n\n    <ion-item button detail=\"false\" (click)=\"setLanguage('zh')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-zh.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">Chinese</ion-label>\n    </ion-item>\n\n  </ion-list>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n  <ion-list>\n    <ion-item button detail=\"false\" (click)=\"setLanguage('en')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-en.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">English</ion-label>\n    </ion-item>\n\n    <ion-item button detail=\"false\" (click)=\"setLanguage('kh')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-kh.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">Khmer</ion-label>\n    </ion-item>\n\n    <!-- <ion-item button detail=\"false\" (click)=\"setLanguage('zh')\">\n      <ion-avatar slot=\"start\">\n        <img src=\"assets/img/flag-zh.jpg\">\n      </ion-avatar>\n      <ion-label class=\"ion-text-wrap\">Chinese</ion-label>\n    </ion-item> -->\n\n  </ion-list>\n</ion-content>");
 
 /***/ }),
 
@@ -464,7 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n    \n    <!-- <ion-buttons slot=\"start\">\n      <ion-button (click)=\"dismiss()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/close.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons> -->\n\n    <ion-title>\n      Select Device\n    </ion-title>\n    \n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"dismiss()\" color=\"light\">\n        Done\n      </ion-button>\n    </ion-buttons>\n\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n    <ion-radio-group [(ngModel)]=\"selectItem\" value=\"{{selectItem}}\">\n      <ion-item *ngFor=\"let item of dataList\">\n        <ion-label>{{ item.name }} ({{ item.plate }})</ion-label>\n        <ion-radio mode=\"md\" slot=\"start\" disabled *ngIf=\"item.isDisabled\"></ion-radio>\n        <ion-radio mode=\"md\" (ionFocus)=\"ionSelect()\" slot=\"start\" value=\"{{ item.id }}\" *ngIf=\"!item.isDisabled\"></ion-radio>\n      </ion-item>\n    </ion-radio-group>\n  </ion-list>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n    \n    <!-- <ion-buttons slot=\"start\">\n      <ion-button (click)=\"dismiss()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/close.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons> -->\n\n    <ion-title>\n      Select Device\n    </ion-title>\n    \n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"dismiss()\" color=\"light\">\n        Done\n      </ion-button>\n    </ion-buttons>\n\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n  <ion-segment (ionChange)=\"segmentChanged($event)\" [(ngModel)]=\"segmentVal\">\n\n    <ion-segment-button value=\"my-devices\">\n      <ion-label>My Devices</ion-label>\n    </ion-segment-button>\n\n    <ion-segment-button value=\"groups\">\n      <ion-label>Groups</ion-label>\n    </ion-segment-button>\n\n  </ion-segment>\n\n  <ion-list *ngIf=\"segmentVal == 'my-devices'\">\n    <ion-item>\n      <ion-label>Select All</ion-label>\n      <ion-checkbox [checked]=\"selectAll\" (ionChange)=\"toggleSelectAll()\" slot=\"start\"></ion-checkbox>\n    </ion-item>\n    <ion-item *ngFor=\"let item of dataList\" class=\"margin-left-15\">\n      <ion-label>{{ item.name }} ({{ item.plate }})</ion-label>\n      <ion-checkbox slot=\"start\" disabled *ngIf=\"item.isDisabled\"></ion-checkbox>\n      <ion-checkbox [checked]=\"selectAll\" (ionChange)=\"ionSelect(item.id)\" slot=\"start\" value=\"{{ item.id }}\" *ngIf=\"!item.isDisabled\"></ion-checkbox>\n    </ion-item>\n  </ion-list>\n\n  <ion-list *ngIf=\"segmentVal == 'groups'\">\n  </ion-list>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -761,12 +761,12 @@ const routes = [
     },
     {
         path: 'geolocation',
-        loadChildren: () => Promise.all(/*! import() | pages-geolocation-geolocation-module */[__webpack_require__.e("default~pages-geolocation-geolocation-module~pages-history-history-module"), __webpack_require__.e("pages-geolocation-geolocation-module")]).then(__webpack_require__.bind(null, /*! ./pages/geolocation/geolocation.module */ "./src/app/pages/geolocation/geolocation.module.ts")).then(m => m.GeolocationPageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-geolocation-geolocation-module */[__webpack_require__.e("default~pages-geofence-geofence-module~pages-geolocation-geolocation-module~pages-history-history-mo~5ef80a63"), __webpack_require__.e("pages-geolocation-geolocation-module")]).then(__webpack_require__.bind(null, /*! ./pages/geolocation/geolocation.module */ "./src/app/pages/geolocation/geolocation.module.ts")).then(m => m.GeolocationPageModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'history',
-        loadChildren: () => Promise.all(/*! import() | pages-history-history-module */[__webpack_require__.e("default~pages-geolocation-geolocation-module~pages-history-history-module"), __webpack_require__.e("common"), __webpack_require__.e("pages-history-history-module")]).then(__webpack_require__.bind(null, /*! ./pages/history/history.module */ "./src/app/pages/history/history.module.ts")).then(m => m.HistoryPageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-history-history-module */[__webpack_require__.e("default~pages-geofence-geofence-module~pages-geolocation-geolocation-module~pages-history-history-mo~5ef80a63"), __webpack_require__.e("common"), __webpack_require__.e("pages-history-history-module")]).then(__webpack_require__.bind(null, /*! ./pages/history/history.module */ "./src/app/pages/history/history.module.ts")).then(m => m.HistoryPageModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
@@ -889,6 +889,25 @@ const routes = [
         path: 'manage-group-single/:id/:name',
         loadChildren: () => Promise.all(/*! import() | pages-manage-group-single-manage-group-single-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-manage-group-single-manage-group-single-module")]).then(__webpack_require__.bind(null, /*! ./pages/manage-group-single/manage-group-single.module */ "./src/app/pages/manage-group-single/manage-group-single.module.ts")).then(m => m.ManageGroupSinglePageModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    },
+    {
+        path: 'street-view',
+        loadChildren: () => Promise.all(/*! import() | pages-street-view-street-view-module */[__webpack_require__.e("default~pages-geofence-geofence-module~pages-geolocation-geolocation-module~pages-history-history-mo~5ef80a63"), __webpack_require__.e("pages-street-view-street-view-module")]).then(__webpack_require__.bind(null, /*! ./pages/street-view/street-view.module */ "./src/app/pages/street-view/street-view.module.ts")).then(m => m.StreetViewPageModule),
+        canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    },
+    {
+        path: 'geofence',
+        loadChildren: () => Promise.all(/*! import() | pages-geofence-geofence-module */[__webpack_require__.e("default~pages-geofence-geofence-module~pages-geolocation-geolocation-module~pages-history-history-mo~5ef80a63"), __webpack_require__.e("pages-geofence-geofence-module")]).then(__webpack_require__.bind(null, /*! ./pages/geofence/geofence.module */ "./src/app/pages/geofence/geofence.module.ts")).then(m => m.GeofencePageModule),
+        canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    },
+    {
+        path: 'polygonfence',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-polygonfence-polygonfence-module */ "pages-polygonfence-polygonfence-module").then(__webpack_require__.bind(null, /*! ./pages/polygonfence/polygonfence.module */ "./src/app/pages/polygonfence/polygonfence.module.ts")).then(m => m.PolygonfencePageModule),
+        canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    },
+    {
+        path: 'geolocation-web',
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-geolocation-web-geolocation-web-module */ "pages-geolocation-web-geolocation-web-module").then(__webpack_require__.bind(null, /*! ./pages/geolocation-web/geolocation-web.module */ "./src/app/pages/geolocation-web/geolocation-web.module.ts")).then(m => m.GeolocationWebPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -915,7 +934,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-menu {\n  --background: #ffffff;\n}\n\nion-icon {\n  font-size: 28px;\n  margin-right: 15px;\n  line-height: 30px;\n}\n\nion-item {\n  margin: 12px 0px;\n  padding-left: 25px;\n  padding-right: 25px;\n  line-height: 30px;\n  font-size: 18px;\n  font-weight: 400;\n  text-transform: uppercase;\n}\n\n.active-item, .active-item ion-icon {\n  color: var(--ion-color-success);\n  --color: var(--ion-color-success);\n}\n\nion-toolbar {\n  --min-height:70px;\n  border-bottom: 0px solid #DDDDDD;\n  --background:#ffffff;\n}\n\nion-title {\n  font-size: 18px;\n  text-align: center;\n  font-weight: 400;\n  line-height: 30px;\n  text-transform: uppercase;\n  color: #66615B;\n}\n\nion-list {\n  margin-bottom: 0px;\n}\n\n.padding-left-15 {\n  padding-left: 15px;\n}\n\nion-footer ion-title {\n  font-size: 12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ29vZ2xlbWFwL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxxQkFBQTtBQ0NKOztBRENBO0VBQ0ksZUFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUNFSjs7QURBQTtFQUNJLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EseUJBQUE7QUNHSjs7QURBQTtFQUNJLCtCQUFBO0VBQ0EsaUNBQUE7QUNHSjs7QURBQTtFQUNJLGlCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxvQkFBQTtBQ0dKOztBREFBO0VBQ0ksZUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsY0FBQTtBQ0dKOztBREFBO0VBQ0ksa0JBQUE7QUNHSjs7QURBQTtFQUNJLGtCQUFBO0FDR0o7O0FEQ0k7RUFDSSxlQUFBO0FDRVIiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbWVudXtcbiAgICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XG59XG5pb24taWNvbntcbiAgICBmb250LXNpemU6IDI4cHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICAgIGxpbmUtaGVpZ2h0OiAzMHB4O1xufVxuaW9uLWl0ZW17XG4gICAgbWFyZ2luOiAxMnB4IDBweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDI1cHg7XG4gICAgcGFkZGluZy1yaWdodDogMjVweDtcbiAgICBsaW5lLWhlaWdodDogMzBweDtcbiAgICBmb250LXNpemU6IDE4cHg7XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4uYWN0aXZlLWl0ZW0sIC5hY3RpdmUtaXRlbSBpb24taWNvbiB7XG4gICAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdWNjZXNzKTtcbiAgICAtLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3VjY2Vzcyk7XG59XG5cbmlvbi10b29sYmFye1xuICAgIC0tbWluLWhlaWdodDo3MHB4O1xuICAgIGJvcmRlci1ib3R0b206IDBweCBzb2xpZCAjREREREREO1xuICAgIC0tYmFja2dyb3VuZDojZmZmZmZmO1xufVxuXG5pb24tdGl0bGV7XG4gICAgZm9udC1zaXplOiAxOHB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXdlaWdodDogNDAwO1xuICAgIGxpbmUtaGVpZ2h0OiAzMHB4O1xuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gICAgY29sb3I6ICM2NjYxNUI7XG59XG5cbmlvbi1saXN0e1xuICAgIG1hcmdpbi1ib3R0b206IDBweDtcbn1cblxuLnBhZGRpbmctbGVmdC0xNXtcbiAgICBwYWRkaW5nLWxlZnQ6IDE1cHg7XG59XG5cbmlvbi1mb290ZXJ7XG4gICAgaW9uLXRpdGxle1xuICAgICAgICBmb250LXNpemU6MTJweDtcbiAgICB9XG59IiwiaW9uLW1lbnUge1xuICAtLWJhY2tncm91bmQ6ICNmZmZmZmY7XG59XG5cbmlvbi1pY29uIHtcbiAgZm9udC1zaXplOiAyOHB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xufVxuXG5pb24taXRlbSB7XG4gIG1hcmdpbjogMTJweCAwcHg7XG4gIHBhZGRpbmctbGVmdDogMjVweDtcbiAgcGFkZGluZy1yaWdodDogMjVweDtcbiAgbGluZS1oZWlnaHQ6IDMwcHg7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbn1cblxuLmFjdGl2ZS1pdGVtLCAuYWN0aXZlLWl0ZW0gaW9uLWljb24ge1xuICBjb2xvcjogdmFyKC0taW9uLWNvbG9yLXN1Y2Nlc3MpO1xuICAtLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3VjY2Vzcyk7XG59XG5cbmlvbi10b29sYmFyIHtcbiAgLS1taW4taGVpZ2h0OjcwcHg7XG4gIGJvcmRlci1ib3R0b206IDBweCBzb2xpZCAjREREREREO1xuICAtLWJhY2tncm91bmQ6I2ZmZmZmZjtcbn1cblxuaW9uLXRpdGxlIHtcbiAgZm9udC1zaXplOiAxOHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBjb2xvcjogIzY2NjE1Qjtcbn1cblxuaW9uLWxpc3Qge1xuICBtYXJnaW4tYm90dG9tOiAwcHg7XG59XG5cbi5wYWRkaW5nLWxlZnQtMTUge1xuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XG59XG5cbmlvbi1mb290ZXIgaW9uLXRpdGxlIHtcbiAgZm9udC1zaXplOiAxMnB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-menu {\n  --background: #ffffff;\n}\n\nion-icon {\n  font-size: 28px;\n  margin-right: 15px;\n  line-height: 30px;\n}\n\nion-item {\n  margin: 12px 0px;\n  padding-left: 25px;\n  padding-right: 25px;\n  line-height: 30px;\n  font-size: 18px;\n  font-weight: 400;\n  text-transform: uppercase;\n}\n\n.active-item, .active-item ion-icon {\n  color: var(--ion-color-success);\n  --color: var(--ion-color-success);\n}\n\nion-toolbar {\n  --min-height:70px;\n  border-bottom: 0px solid #DDDDDD;\n  --background:#ffffff;\n}\n\nion-title {\n  font-size: 18px;\n  text-align: center;\n  font-weight: 400;\n  line-height: 30px;\n  text-transform: uppercase;\n  color: #66615B;\n}\n\nion-list {\n  margin-bottom: 0px;\n}\n\n.padding-left-15 {\n  padding-left: 15px;\n}\n\nion-footer ion-title {\n  font-size: 12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7QUNDSjs7QURDQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0FDRUo7O0FEQUE7RUFDSSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLHlCQUFBO0FDR0o7O0FEQUE7RUFDSSwrQkFBQTtFQUNBLGlDQUFBO0FDR0o7O0FEQUE7RUFDSSxpQkFBQTtFQUNBLGdDQUFBO0VBQ0Esb0JBQUE7QUNHSjs7QURBQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSx5QkFBQTtFQUNBLGNBQUE7QUNHSjs7QURBQTtFQUNJLGtCQUFBO0FDR0o7O0FEQUE7RUFDSSxrQkFBQTtBQ0dKOztBRENJO0VBQ0ksZUFBQTtBQ0VSIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLW1lbnV7XG4gICAgLS1iYWNrZ3JvdW5kOiAjZmZmZmZmO1xufVxuaW9uLWljb257XG4gICAgZm9udC1zaXplOiAyOHB4O1xuICAgIG1hcmdpbi1yaWdodDogMTVweDtcbiAgICBsaW5lLWhlaWdodDogMzBweDtcbn1cbmlvbi1pdGVte1xuICAgIG1hcmdpbjogMTJweCAwcHg7XG4gICAgcGFkZGluZy1sZWZ0OiAyNXB4O1xuICAgIHBhZGRpbmctcmlnaHQ6IDI1cHg7XG4gICAgbGluZS1oZWlnaHQ6IDMwcHg7XG4gICAgZm9udC1zaXplOiAxOHB4O1xuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbn1cblxuLmFjdGl2ZS1pdGVtLCAuYWN0aXZlLWl0ZW0gaW9uLWljb24ge1xuICAgIGNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3VjY2Vzcyk7XG4gICAgLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN1Y2Nlc3MpO1xufVxuXG5pb24tdG9vbGJhcntcbiAgICAtLW1pbi1oZWlnaHQ6NzBweDtcbiAgICBib3JkZXItYm90dG9tOiAwcHggc29saWQgI0RERERERDtcbiAgICAtLWJhY2tncm91bmQ6I2ZmZmZmZjtcbn1cblxuaW9uLXRpdGxle1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgICBsaW5lLWhlaWdodDogMzBweDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgIGNvbG9yOiAjNjY2MTVCO1xufVxuXG5pb24tbGlzdHtcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XG59XG5cbi5wYWRkaW5nLWxlZnQtMTV7XG4gICAgcGFkZGluZy1sZWZ0OiAxNXB4O1xufVxuXG5pb24tZm9vdGVye1xuICAgIGlvbi10aXRsZXtcbiAgICAgICAgZm9udC1zaXplOjEycHg7XG4gICAgfVxufSIsImlvbi1tZW51IHtcbiAgLS1iYWNrZ3JvdW5kOiAjZmZmZmZmO1xufVxuXG5pb24taWNvbiB7XG4gIGZvbnQtc2l6ZTogMjhweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBsaW5lLWhlaWdodDogMzBweDtcbn1cblxuaW9uLWl0ZW0ge1xuICBtYXJnaW46IDEycHggMHB4O1xuICBwYWRkaW5nLWxlZnQ6IDI1cHg7XG4gIHBhZGRpbmctcmlnaHQ6IDI1cHg7XG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xuICBmb250LXNpemU6IDE4cHg7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG59XG5cbi5hY3RpdmUtaXRlbSwgLmFjdGl2ZS1pdGVtIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdWNjZXNzKTtcbiAgLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN1Y2Nlc3MpO1xufVxuXG5pb24tdG9vbGJhciB7XG4gIC0tbWluLWhlaWdodDo3MHB4O1xuICBib3JkZXItYm90dG9tOiAwcHggc29saWQgI0RERERERDtcbiAgLS1iYWNrZ3JvdW5kOiNmZmZmZmY7XG59XG5cbmlvbi10aXRsZSB7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXdlaWdodDogNDAwO1xuICBsaW5lLWhlaWdodDogMzBweDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgY29sb3I6ICM2NjYxNUI7XG59XG5cbmlvbi1saXN0IHtcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xufVxuXG4ucGFkZGluZy1sZWZ0LTE1IHtcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xufVxuXG5pb24tZm9vdGVyIGlvbi10aXRsZSB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1250,7 +1269,7 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".list-ios {\n  margin-bottom: 0px;\n}\n\nion-list {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ29vZ2xlbWFwL3NyYy9hcHAvcGFnZXMvY2hvb3NlLWxhbmd1YWdlL2Nob29zZS1sYW5ndWFnZS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2Nob29zZS1sYW5ndWFnZS9jaG9vc2UtbGFuZ3VhZ2UucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQUE7QUNDSjs7QURDQTtFQUNJLGlCQUFBO0VBQ0Esb0JBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Nob29zZS1sYW5ndWFnZS9jaG9vc2UtbGFuZ3VhZ2UucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxpc3QtaW9ze1xuICAgIG1hcmdpbi1ib3R0b206IDBweDtcbn1cbmlvbi1saXN0e1xuICAgIHBhZGRpbmctdG9wOjE1cHg7XG4gICAgcGFkZGluZy1ib3R0b206MTVweDtcbn0iLCIubGlzdC1pb3Mge1xuICBtYXJnaW4tYm90dG9tOiAwcHg7XG59XG5cbmlvbi1saXN0IHtcbiAgcGFkZGluZy10b3A6IDE1cHg7XG4gIHBhZGRpbmctYm90dG9tOiAxNXB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".list-ios {\n  margin-bottom: 0px;\n}\n\nion-list {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL3BhZ2VzL2Nob29zZS1sYW5ndWFnZS9jaG9vc2UtbGFuZ3VhZ2UucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9jaG9vc2UtbGFuZ3VhZ2UvY2hvb3NlLWxhbmd1YWdlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0FDQ0o7O0FEQ0E7RUFDSSxpQkFBQTtFQUNBLG9CQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jaG9vc2UtbGFuZ3VhZ2UvY2hvb3NlLWxhbmd1YWdlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5saXN0LWlvc3tcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XG59XG5pb24tbGlzdHtcbiAgICBwYWRkaW5nLXRvcDoxNXB4O1xuICAgIHBhZGRpbmctYm90dG9tOjE1cHg7XG59IiwiLmxpc3QtaW9zIHtcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xufVxuXG5pb24tbGlzdCB7XG4gIHBhZGRpbmctdG9wOiAxNXB4O1xuICBwYWRkaW5nLWJvdHRvbTogMTVweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1359,6 +1378,8 @@ let SelectDevicePage = class SelectDevicePage {
         this.selectedItems = [];
         this.selectItem = 0;
         this.currentItem = 0;
+        this.selectItems = [];
+        this.selectAll = false;
     }
     ngOnInit() {
         this.moduleName = this.navParams.get('moduleName');
@@ -1370,17 +1391,22 @@ let SelectDevicePage = class SelectDevicePage {
             this.currentItems = [this.storageService.current_item.id];
             this.selectItem = this.storageService.current_item.id;
         }, (err) => {
-            console.log(err);
+            console.log("Error: " + err);
         }, () => {
+            this.segmentVal = 'my-devices';
             this.userID = this.authService.user["id"];
+            console.log("userID: " + this.userID);
+            console.log("authService: " + this.authService.user);
             this.initGroupQuery();
         });
     }
     dismiss() {
-        let item;
+        let item = [];
         for (let i = 0; i < this.dataList.length; i++) {
-            if (this.selectItem == this.dataList[i].id) {
-                item = this.dataList[i];
+            for (let j = 0; j < this.selectItems.length; j++) {
+                if (this.selectItems[j] == this.dataList[i].id) {
+                    item.push(this.dataList[i]);
+                }
             }
         }
         if (this.selectItem > 0) {
@@ -1505,35 +1531,38 @@ let SelectDevicePage = class SelectDevicePage {
             this.pagination++;
         });
     }
-    ionSelect() {
+    ionSelect(itemID) {
         this.currentItem = this.selectItem;
+        this.addOrRemoveSelectItems(itemID);
+    }
+    addOrRemoveSelectItems(value) {
+        var index = this.selectItems.indexOf(value);
+        if (index === -1) {
+            this.selectItems.push(value);
+        }
+        else {
+            this.selectItems.splice(index, 1);
+        }
+    }
+    toggleSelectAll() {
+        this.selectAll = !this.selectAll;
     }
     onChange(event, itemID) {
-        // if(event.target.checked)
-        // {
-        //   let exist = false;
-        //   for(let i=0; i<this.selectedItems.length; i++)
-        //   {
-        //     if( itemID == this.selectedItems[i] )
-        //       exist = true;
-        //   }
-        //   if(!exist)
-        //     this.selectedItems.push(itemID);
-        // }
-        // else{
-        //   // remove itemID
-        //   const index = this.selectedItems.indexOf(itemID);
-        //   if (index > -1) {
-        //     this.selectedItems.splice(index, 1);
-        //   }
-        // }
         for (let i = 0; i < this.dataList.length; i++) {
             if (itemID != this.dataList[i].id)
                 this.dataList[i].isChecked = false;
             else
                 this.dataList[i].isChecked = true;
         }
-        console.log(this.selectedItems);
+    }
+    segmentChanged(ev) {
+        this.segmentVal = ev.target.value;
+        if (this.segmentVal == "today") {
+        }
+        else if (this.segmentVal == "yesterday") {
+        }
+        else {
+        }
     }
 };
 SelectDevicePage.ctorParameters = () => [
@@ -2219,7 +2248,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tepafril/Documents/googlemap/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/tepafril/Documents/gtopclient/src/main.ts */"./src/main.ts");
 
 
 /***/ })

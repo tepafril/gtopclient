@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/arrow-left.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{ 'APP.geolocation' | translate }}\n    </ion-title>\n\n  </ion-toolbar>\n</ion-header>\n  \n\n\n<ion-content>\n  <div id=\"map_canvas\" >\n\n    <ion-fab vertical=\"top\" horizontal=\"start\" slot=\"fixed\">\n      <ion-fab-button color=\"success\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateUser()\">\n        <ion-icon name=\"navigate-circle-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"primary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateDevice()\">\n        <ion-icon name=\"location-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"warning\" size=\"small\" class=\"marginBottom5\" (click)=\"controlGoogleDirection()\">\n        <ion-icon name=\"map-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n\n    <ion-fab vertical=\"center\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlSatelliteLayer()\">\n        <ion-icon name=\"layers-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlTrafficLayer()\">\n        <ion-icon name=\"trail-sign-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n    <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\" style=\"margin-bottom:50px\">\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomIn()\">\n        <ion-icon name=\"add-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomOut()\">\n        <ion-icon name=\"remove-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n    \n  </div>\n  <div id=\"over_map\">\n    <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"selectDevice()\">\n      {{ devicePlateNumber }}\n      <ion-icon slot=\"end\" src=\"assets/themify-icons/SVG/exchange-vertical.svg\"></ion-icon>\n    </ion-button>\n  </div>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/arrow-left.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{ 'APP.geolocation' | translate }}\n    </ion-title>\n\n  </ion-toolbar>\n</ion-header>\n  \n\n\n<ion-content>\n  <div id=\"map_canvas\" >\n\n    <ion-fab vertical=\"top\" horizontal=\"start\" slot=\"fixed\">\n      <ion-fab-button color=\"success\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateUser()\">\n        <ion-icon name=\"navigate-circle-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"primary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateDevice()\">\n        <ion-icon name=\"locate-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"warning\" size=\"small\" class=\"marginBottom5\" (click)=\"controlGoogleDirection()\">\n        <ion-icon name=\"map-outline\"></ion-icon>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"tertiary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlFollowCamera()\" *ngIf=\"!followCamera\">\n        <ion-icon name=\"eye-off-outline\"></ion-icon>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"tertiary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlFollowCamera()\" *ngIf=\"followCamera\">\n        <ion-icon name=\"eye-outline\"></ion-icon>\n      </ion-fab-button>\n      \n    </ion-fab>\n\n\n    <ion-fab vertical=\"center\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlToggleInfoBox()\">\n        <ion-icon name=\"chatbox-ellipses-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlSatelliteLayer()\">\n        <ion-icon name=\"layers-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlTrafficLayer()\">\n        <ion-icon name=\"trail-sign-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n    <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\" style=\"margin-bottom:50px\">\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomIn()\">\n        <ion-icon name=\"add-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomOut()\">\n        <ion-icon name=\"remove-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n    \n  </div>\n  <div id=\"over_map\">\n    <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"selectDevice()\">\n      {{ devicePlateNumber }}\n      <ion-icon slot=\"end\" src=\"assets/themify-icons/SVG/exchange-vertical.svg\"></ion-icon>\n    </ion-button>\n  </div>\n</ion-content>\n";
     /***/
   },
 
@@ -180,7 +180,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "ion-content {\n  --overflow: hidden;\n}\n\n.battery:after {\n  background-color: #fff;\n  border: 2px solid #000;\n  content: \"\";\n  display: block;\n  height: 16px;\n  position: absolute;\n  right: -6px;\n  top: 6px;\n  width: 6px;\n}\n\n.battery {\n  background-color: #fff;\n  border: 2px solid #000;\n  height: 32px;\n  margin-left: auto;\n  margin-right: auto;\n  position: relative;\n  width: 100px;\n}\n\n.battery .battery-level {\n  background-color: #666;\n  height: 100%;\n}\n\n#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n\n.hidden {\n  visibility: hidden;\n}\n\n#over_map {\n  position: absolute;\n  top: 10px;\n  left: 0;\n  right: 0;\n  z-index: 99;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ29vZ2xlbWFwL3NyYy9hcHAvcGFnZXMvZ2VvbG9jYXRpb24vZ2VvbG9jYXRpb24ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9nZW9sb2NhdGlvbi9nZW9sb2NhdGlvbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtBQ0NKOztBRENBO0VBQ0ksc0JBQUE7RUFDQSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFFBQUE7RUFDQSxVQUFBO0FDRUo7O0FEQUE7RUFDSSxzQkFBQTtFQUNBLHNCQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7QUNHSjs7QUREQTtFQUNJLHNCQUFBO0VBQ0EsWUFBQTtBQ0lKOztBREZBO0VBQ0ksV0FBQTtFQUNBLFlBQUE7QUNLSjs7QURIQTtFQUNJLGtCQUFBO0FDTUo7O0FESkE7RUFDSSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ09KIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZ2VvbG9jYXRpb24vZ2VvbG9jYXRpb24ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWNvbnRlbnQge1xuICAgIC0tb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbi5iYXR0ZXJ5OmFmdGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xuICAgIGJvcmRlcjogMnB4IHNvbGlkICMwMDA7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBoZWlnaHQ6IDE2cHg7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHJpZ2h0OiAtNnB4O1xuICAgIHRvcDogNnB4O1xuICAgIHdpZHRoOiA2cHg7XG59XG4uYmF0dGVyeSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMDAwO1xuICAgIGhlaWdodDogMzJweDtcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHdpZHRoOiAxMDBweDtcbn1cbi5iYXR0ZXJ5IC5iYXR0ZXJ5LWxldmVsIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNjY2O1xuICAgIGhlaWdodDogMTAwJTtcbn1cbiNtYXBfY2FudmFzIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4uaGlkZGVue1xuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcbn1cbiNvdmVyX21hcCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTBweDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OjA7XG4gICAgei1pbmRleDogOTk7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLy8gLm1hcmdpbkJvdHRvbTV7XG4vLyAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuLy8gfVxuLy8gLnpvb21Db250cm9sczkwe1xuLy8gICAgIC0tcGFkZGluZy1ib3R0b206IDkwcHg7XG4vLyB9IiwiaW9uLWNvbnRlbnQge1xuICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5iYXR0ZXJ5OmFmdGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgYm9yZGVyOiAycHggc29saWQgIzAwMDtcbiAgY29udGVudDogXCJcIjtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGhlaWdodDogMTZweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogLTZweDtcbiAgdG9wOiA2cHg7XG4gIHdpZHRoOiA2cHg7XG59XG5cbi5iYXR0ZXJ5IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgYm9yZGVyOiAycHggc29saWQgIzAwMDtcbiAgaGVpZ2h0OiAzMnB4O1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDBweDtcbn1cblxuLmJhdHRlcnkgLmJhdHRlcnktbGV2ZWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNjY2O1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbiNtYXBfY2FudmFzIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn1cblxuI292ZXJfbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDEwcHg7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICB6LWluZGV4OiA5OTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */";
+    __webpack_exports__["default"] = "ion-content {\n  --overflow: hidden;\n}\n\n.battery:after {\n  background-color: #fff;\n  border: 2px solid #000;\n  content: \"\";\n  display: block;\n  height: 16px;\n  position: absolute;\n  right: -6px;\n  top: 6px;\n  width: 6px;\n}\n\n.battery {\n  background-color: #fff;\n  border: 2px solid #000;\n  height: 32px;\n  margin-left: auto;\n  margin-right: auto;\n  position: relative;\n  width: 100px;\n}\n\n.battery .battery-level {\n  background-color: #666;\n  height: 100%;\n}\n\n#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n\n.hidden {\n  visibility: hidden;\n}\n\n#over_map {\n  position: absolute;\n  top: 10px;\n  left: 0;\n  right: 0;\n  z-index: 99;\n  text-align: center;\n}\n\n.camera-disabled {\n  opacity: 0.6;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL3BhZ2VzL2dlb2xvY2F0aW9uL2dlb2xvY2F0aW9uLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvZ2VvbG9jYXRpb24vZ2VvbG9jYXRpb24ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQUE7QUNDSjs7QURDQTtFQUNJLHNCQUFBO0VBQ0Esc0JBQUE7RUFDQSxXQUFBO0VBQ0EsY0FBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxRQUFBO0VBQ0EsVUFBQTtBQ0VKOztBREFBO0VBQ0ksc0JBQUE7RUFDQSxzQkFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0FDR0o7O0FEREE7RUFDSSxzQkFBQTtFQUNBLFlBQUE7QUNJSjs7QURGQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FDS0o7O0FESEE7RUFDSSxrQkFBQTtBQ01KOztBREpBO0VBQ0ksa0JBQUE7RUFDQSxTQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNPSjs7QURMQTtFQUNJLFlBQUE7QUNRSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dlb2xvY2F0aW9uL2dlb2xvY2F0aW9uLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG4uYmF0dGVyeTphZnRlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMDAwO1xuICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgaGVpZ2h0OiAxNnB4O1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICByaWdodDogLTZweDtcbiAgICB0b3A6IDZweDtcbiAgICB3aWR0aDogNnB4O1xufVxuLmJhdHRlcnkge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG4gICAgYm9yZGVyOiAycHggc29saWQgIzAwMDtcbiAgICBoZWlnaHQ6IDMycHg7XG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB3aWR0aDogMTAwcHg7XG59XG4uYmF0dGVyeSAuYmF0dGVyeS1sZXZlbCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzY2NjtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4jbWFwX2NhbnZhcyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xufVxuLmhpZGRlbntcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG59XG4jb3Zlcl9tYXAge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDEwcHg7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDowO1xuICAgIHotaW5kZXg6IDk5O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5jYW1lcmEtZGlzYWJsZWR7XG4gICAgb3BhY2l0eTogMC42O1xufVxuLy8gLm1hcmdpbkJvdHRvbTV7XG4vLyAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuLy8gfVxuLy8gLnpvb21Db250cm9sczkwe1xuLy8gICAgIC0tcGFkZGluZy1ib3R0b206IDkwcHg7XG4vLyB9IiwiaW9uLWNvbnRlbnQge1xuICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5iYXR0ZXJ5OmFmdGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgYm9yZGVyOiAycHggc29saWQgIzAwMDtcbiAgY29udGVudDogXCJcIjtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGhlaWdodDogMTZweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogLTZweDtcbiAgdG9wOiA2cHg7XG4gIHdpZHRoOiA2cHg7XG59XG5cbi5iYXR0ZXJ5IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgYm9yZGVyOiAycHggc29saWQgIzAwMDtcbiAgaGVpZ2h0OiAzMnB4O1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHdpZHRoOiAxMDBweDtcbn1cblxuLmJhdHRlcnkgLmJhdHRlcnktbGV2ZWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNjY2O1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbiNtYXBfY2FudmFzIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn1cblxuI292ZXJfbWFwIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDEwcHg7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICB6LWluZGV4OiA5OTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uY2FtZXJhLWRpc2FibGVkIHtcbiAgb3BhY2l0eTogMC42O1xufSJdfQ== */";
     /***/
   },
 
@@ -305,7 +305,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.geolocation = geolocation;
         this.modalController = modalController;
         this.markers = [];
-        this.current_location_marker = 'assets/google/marker/current-location.png';
         this.user = null;
         this.statusColor = {
           "deviceOnline": "#00a850",
@@ -348,7 +347,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.isMapHidden = true;
         this.toggleTraffic = false;
         this.toggleSatellite = false;
+        this.followCamera = false;
         this.spriteNameArr = ["0", "15", "30", "45", "60", "75", "90", "105", "120", "135", "150", "165", "180", "195", "210", "225", "240", "255", "270", "285", "300", "315", "330", "345", "360"];
+        this.toggleInfoBox = true;
       }
 
       _createClass(GeolocationPage, [{
@@ -389,7 +390,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 lat: 11.5560777,
                 lng: 104.8941368
               },
-              zoom: 7
+              zoom: 7,
+              tilt: 30
+            },
+            preferences: {
+              zoom: {
+                minZoom: 6,
+                maxZoom: 18
+              },
+              building: true
             }
           });
           this.map.one(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_13__["GoogleMapsEvent"].MAP_READY).then(function () {
@@ -456,6 +465,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this3 = this;
 
           this.geolocation.getCurrentPosition().then(function (position) {
+            console.log(position);
+
             if (position) {
               _this3.userPosition.lat = position.coords.latitude;
               _this3.userPosition.lng = position.coords.longitude;
@@ -502,7 +513,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function drawDeviceMarker() {
           var randomSprite = Math.floor(Math.random() * 24);
           var icon = {
-            url: 'assets/google/marker/' + this.deviceIcon + '.png',
+            url: 'assets/google/marker/' + this.deviceIcon + '/0.png',
             size: {
               width: this.deviceIconSize,
               height: this.deviceIconSize
@@ -520,17 +531,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               },
               anchor: [this.deviceIconSize / 2, this.deviceIconSize / 2]
             });
+            this.map.setOptions({
+              camera: {
+                target: [{
+                  lat: this.devicePosition.lat,
+                  lng: this.devicePosition.lng
+                }]
+              }
+            });
           }
 
           this.deviceMarker.setIconAnchor(this.deviceIconSize / 2, this.deviceIconSize / 2);
-          this.map.setOptions({
-            camera: {
-              target: [{
-                lat: this.devicePosition.lat,
-                lng: this.devicePosition.lng
-              }]
-            }
-          });
+
+          if (this.followCamera) {
+            this.map.setOptions({
+              camera: {
+                target: [{
+                  lat: this.devicePosition.lat,
+                  lng: this.devicePosition.lng
+                }]
+              }
+            });
+          }
+
           this.deviceMarker.setIcon(icon);
         }
       }, {
@@ -571,8 +594,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "drawInfoBox",
         value: function drawInfoBox() {
-          var _this4 = this;
-
           var traccar_attributes = JSON.parse(this.httpResponse.position.attributes);
           var traccar_event = this.httpResponse.event;
           var traccar_status = traccar_event.type;
@@ -580,7 +601,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var traccar_speed = Math.abs(this.httpResponse.position.speed * 1.852).toFixed(2) + this.lang.instant('APP.kmh') + '&nbsp;';
           var traccar_battery = Math.abs(traccar_attributes["batteryLevel"]);
           var traccar_ignition = this.lang.instant('APP.' + this.ignitionStatus[traccar_attributes["ignition"]]);
-          var traccar_trip = (traccar_attributes["totalDistance"] / 1000).toFixed(2) + this.lang.instant('APP.km');
+          var traccar_trip = (traccar_attributes["totalDistance"] / 1000).toFixed(0) + this.lang.instant('APP.km');
           var traccar_hours = (traccar_attributes["hours"] / 3.6e+6).toFixed(2) + this.lang.instant('APP.h');
           var traccar_date = this.readableLocalDate(this.httpResponse.position.fixtime) + ' ' + this.readableLocalTime(this.httpResponse.position.fixtime);
           var battery_spite = this.checkMyBatterySprite(traccar_battery);
@@ -602,38 +623,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.infoBox = new _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_13__["HtmlInfoWindow"]();
           this.infoBox.setContent(frame, cssOptions);
           this.infoBox.open(this.deviceMarker); // Prevent closing when Clicking on map
-
-          this.infoBox.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_13__["GoogleMapsEvent"].INFO_CLOSE).subscribe(function () {
-            setTimeout(function () {
-              _this4.infoBox.open(_this4.deviceMarker);
-            }, 50);
-          }); // this.infoBox.on(GoogleMapsEvent.INFO_OPEN).subscribe(()=>{
+          // this.infoBox.on(GoogleMapsEvent.INFO_CLOSE).subscribe(()=>{
           //   setTimeout(()=>{
-          //     if(this.isMapHidden)
-          //     {
-          //       this.isMapHidden = !this.isMapHidden;
-          //       this.loading.dismiss();
-          //     }
+          //     this.infoBox.open(this.deviceMarker);
           //   }, 50);
           // });
-          // this.infoBox = new InfoBox({
-          //   content: infoBoxContent,
-          //   disableAutoPan: false,
-          //   maxWidth: 0,
-          //   pixelOffset: new google.maps.Size(-160, -Math.abs(this.lang.instant('APP.GeolocationInfoBoxPixelOffset'))),
-          //   zIndex: null,
-          //   boxStyle: { 
-          //     width: "320px",
-          //     height: this.lang.instant('APP.GeolocationInfoBoxHeight')
-          //   },
-          //   closeBoxMargin: "10px 2px 2px 2px",
-          //   closeBoxURL: "",
-          //   infoBoxClearance: new google.maps.Size(1, 1),
-          //   isHidden: false,
-          //   pane: "floatPane",
-          //   enableEventPropagation: false
-          // });
-          // this.infoBox.open(this.map, this.deviceMarker);
         }
       }, {
         key: "instantiateGoogleMap",
@@ -651,9 +645,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               zoom: 14
             }
           };
-          this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_13__["GoogleMaps"].create('map_canvas', mapOptions); // this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
-          //   alert('clicked');
-          // });
+          this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_13__["GoogleMaps"].create('map_canvas', mapOptions);
         }
       }, {
         key: "controlZoomIn",
@@ -677,6 +669,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, function (error) {
             console.log(error);
           });
+        }
+      }, {
+        key: "controlFollowCamera",
+        value: function controlFollowCamera() {
+          this.followCamera = !this.followCamera;
+
+          if (this.followCamera) {
+            this.map.setOptions({
+              camera: {
+                target: [{
+                  lat: this.devicePosition.lat,
+                  lng: this.devicePosition.lng
+                }]
+              }
+            });
+          }
+        }
+      }, {
+        key: "controlToggleInfoBox",
+        value: function controlToggleInfoBox() {
+          this.toggleInfoBox = !this.toggleInfoBox;
+          if (this.toggleInfoBox) this.infoBox.open(this.deviceMarker);else this.infoBox.close();
         }
       }, {
         key: "controlNavigateDevice",
@@ -849,7 +863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee3() {
-            var _this5 = this;
+            var _this4 = this;
 
             var assignItemModal;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -869,21 +883,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   case 2:
                     assignItemModal = _context3.sent;
                     assignItemModal.onDidDismiss().then(function (res) {
-                      _this5.selectedItems = res.data; // Present Preloading
+                      _this4.selectedItems = res.data; // Present Preloading
 
-                      _this5.presentLoading(); // Get Current Item from Storage
+                      _this4.presentLoading(); // Get Current Item from Storage
 
 
-                      _this5.storageService.setItem().subscribe(function (res) {
-                        _this5.current_item = _this5.selectedItems;
-                        _this5.deviceIcon = _this5.current_item.icon_name;
-                        _this5.deviceIconSize = _this5.current_item.icon_size;
-                        _this5.devicePlateNumber = _this5.current_item.plate;
+                      _this4.storageService.setItem().subscribe(function (res) {
+                        _this4.current_item = _this4.selectedItems;
+                        _this4.deviceIcon = _this4.current_item.icon_name;
+                        _this4.deviceIconSize = _this4.current_item.icon_size;
+                        _this4.devicePlateNumber = _this4.current_item.plate;
                       }, function (err) {
                         console.log(err);
                       }, function () {
                         // Start Http Request
-                        _this5.locateDevice();
+                        _this4.locateDevice();
                       });
                     }).catch(function (err) {
                       console.log(err);

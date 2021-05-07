@@ -173,6 +173,10 @@ const routes: Routes = [
     path: 'polygonfence',
     loadChildren: () => import('./pages/polygonfence/polygonfence.module').then( m => m.PolygonfencePageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'geolocation-web',
+    loadChildren: () => import('./pages/geolocation-web/geolocation-web.module').then( m => m.GeolocationWebPageModule)
   }
 ];
 

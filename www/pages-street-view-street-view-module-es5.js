@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>StreetView</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div id=\"pano_canvas\">\n    <div id=\"map_canvas\"></div>\n  </div>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>StreetView</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div id=\"pano_canvas\"></div>\n  <div id=\"map_canvas\"></div>\n</ion-content>\n";
     /***/
   },
 
@@ -174,7 +174,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3N0cmVldC12aWV3L3N0cmVldC12aWV3LnBhZ2Uuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "#pano_canvas {\n  top: 0;\n  left: 0;\n  height: 50%;\n  width: 100%;\n  position: absolute !important;\n}\n\n#map_canvas {\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  position: absolute !important;\n  z-index: 2;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL3BhZ2VzL3N0cmVldC12aWV3L3N0cmVldC12aWV3LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvc3RyZWV0LXZpZXcvc3RyZWV0LXZpZXcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksTUFBQTtFQUNBLE9BQUE7RUFDQSxXQUFBO0VBQ0EsV0FBQTtFQUNBLDZCQUFBO0FDQ0o7O0FERUE7RUFDSSxTQUFBO0VBQ0EsT0FBQTtFQUNBLFdBQUE7RUFDQSxXQUFBO0VBQ0EsNkJBQUE7RUFDQSxVQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9zdHJlZXQtdmlldy9zdHJlZXQtdmlldy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjcGFub19jYW52YXMge1xuICAgIHRvcDowO1xuICAgIGxlZnQ6MDtcbiAgICBoZWlnaHQ6IDUwJTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcbn1cblxuI21hcF9jYW52YXMge1xuICAgIGJvdHRvbTogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogNTAlO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZSAhaW1wb3J0YW50O1xuICAgIHotaW5kZXg6IDI7XG59IiwiI3Bhbm9fY2FudmFzIHtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICBoZWlnaHQ6IDUwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZSAhaW1wb3J0YW50O1xufVxuXG4jbWFwX2NhbnZhcyB7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogNTAlO1xuICBwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcbiAgei1pbmRleDogMjtcbn0iXX0= */";
     /***/
   },
 
@@ -285,13 +285,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.panorama.bindTo('position', this.marker); // Move the map camera when the panorama camera has been moved.
 
-          this.panorama.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_3__["GoogleMapsEvent"].PANORAMA_LOCATION_CHANGE).subscribe(function (params) {
-            var location = params[0];
-
-            _this.map.animateCamera({
-              target: location.latLng,
-              duration: 1000
-            });
+          this.panorama.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_3__["GoogleMapsEvent"].PANORAMA_LOCATION_CHANGE).subscribe(function (params) {// let location: StreetViewLocation = params[0];
+            // this.map.animateCamera({
+            //   target: location.latLng,
+            //   duration: 1000
+            // });
           }); // Change the marker bearing when the panorama camera is panning.
 
           this.panorama.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_3__["GoogleMapsEvent"].PANORAMA_CAMERA_CHANGE).subscribe(function (params) {

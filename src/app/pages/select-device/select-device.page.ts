@@ -24,8 +24,13 @@ export class SelectDevicePage implements OnInit {
   selectedItems = [];
   selectItem = 0;
   currentItem = 0;
+  selectItems = [];
+
+  segmentVal;
 
   moduleName;
+
+  selectAll = false;
   
   constructor(
     private authService: AuthService,
@@ -50,9 +55,12 @@ export class SelectDevicePage implements OnInit {
       this.currentItems = [this.storageService.current_item.id];
       this.selectItem = this.storageService.current_item.id;
     },(err) => {
-      console.log(err);
+      console.log("Error: " + err);
     }, () => {
+      this.segmentVal = 'my-devices';
       this.userID = this.authService.user["id"];
+      console.log("userID: "+this.userID);
+      console.log("authService: "+this.authService.user);
       this.initGroupQuery();
     });
 
@@ -60,13 +68,19 @@ export class SelectDevicePage implements OnInit {
 
   dismiss()
   {
-    let item;
+
+    let item = [];
     for( let i = 0; i < this.dataList.length; i++ )
     {
-      if( this.selectItem == this.dataList[i].id )
+     
+      for( let j = 0; j < this.selectItems.length; j++ )
       {
-        item = this.dataList[i];
+        if( this.selectItems[j] == this.dataList[i].id )
+        {
+          item.push(this.dataList[i]);
+        }
       }
+
     }
     
     if( this.selectItem > 0)
@@ -219,29 +233,29 @@ export class SelectDevicePage implements OnInit {
     });
   }
 
-  ionSelect(){
+  ionSelect( itemID ){
     this.currentItem = this.selectItem;
+    this.addOrRemoveSelectItems(itemID);
+  }
+
+
+  addOrRemoveSelectItems(value) {
+    var index = this.selectItems.indexOf(value);
+
+    if (index === -1) {
+        this.selectItems.push(value);
+    } else {
+      this.selectItems.splice(index, 1);
+    }
+  }
+
+  toggleSelectAll()
+  {
+    this.selectAll = !this.selectAll;
   }
 
   onChange(event, itemID){
-    // if(event.target.checked)
-    // {
-    //   let exist = false;
-    //   for(let i=0; i<this.selectedItems.length; i++)
-    //   {
-    //     if( itemID == this.selectedItems[i] )
-    //       exist = true;
-    //   }
-    //   if(!exist)
-    //     this.selectedItems.push(itemID);
-    // }
-    // else{
-    //   // remove itemID
-    //   const index = this.selectedItems.indexOf(itemID);
-    //   if (index > -1) {
-    //     this.selectedItems.splice(index, 1);
-    //   }
-    // }
+    
     for( let i=0; i<this.dataList.length; i++ )
     {
       if( itemID != this.dataList[i].id )
@@ -249,7 +263,26 @@ export class SelectDevicePage implements OnInit {
       else
         this.dataList[i].isChecked = true;
     }
-    console.log(this.selectedItems);
+    
+  }
+
+
+
+  segmentChanged(ev:any)
+  {
+    this.segmentVal = ev.target.value;
+    
+    if( this.segmentVal == "today" )
+    {
+      
+    }
+    else if( this.segmentVal == "yesterday" )
+    {
+      
+    }
+    else{
+      
+    }
   }
 
 }

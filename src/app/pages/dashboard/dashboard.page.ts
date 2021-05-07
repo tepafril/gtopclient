@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, MenuController, NavController, LoadingController } from '@ionic/angular';
+import { Platform, ModalController, MenuController, NavController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { AlertService } from 'src/app/services/alert.service';
@@ -18,8 +18,10 @@ export class DashboardPage implements OnInit {
 
   loading:any;
   httpResponse:any;
+  routerLinkGeolocation = '/geolocation-web';
 
   constructor(
+    private platform: Platform,
     private menu: MenuController,
     private authService: AuthService,
     private navCtrl: NavController,
@@ -28,7 +30,17 @@ export class DashboardPage implements OnInit {
     private storageService: StorageService
   ) {
     this.menu.enable(true);
+    this.initializeApp();
   }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      if (this.platform.is('cordova')) {
+        this.routerLinkGeolocation = '/geolocation';
+      }
+    });
+  }
+
 
   ngOnInit() {
   }

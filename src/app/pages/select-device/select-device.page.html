@@ -22,13 +22,32 @@
 
 
 <ion-content>
-  <ion-list>
-    <ion-radio-group [(ngModel)]="selectItem" value="{{selectItem}}">
-      <ion-item *ngFor="let item of dataList">
-        <ion-label>{{ item.name }} ({{ item.plate }})</ion-label>
-        <ion-radio mode="md" slot="start" disabled *ngIf="item.isDisabled"></ion-radio>
-        <ion-radio mode="md" (ionFocus)="ionSelect()" slot="start" value="{{ item.id }}" *ngIf="!item.isDisabled"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
+
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segmentVal">
+
+    <ion-segment-button value="my-devices">
+      <ion-label>My Devices</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="groups">
+      <ion-label>Groups</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <ion-list *ngIf="segmentVal == 'my-devices'">
+    <ion-item>
+      <ion-label>Select All</ion-label>
+      <ion-checkbox [checked]="selectAll" (ionChange)="toggleSelectAll()" slot="start"></ion-checkbox>
+    </ion-item>
+    <ion-item *ngFor="let item of dataList" class="margin-left-15">
+      <ion-label>{{ item.name }} ({{ item.plate }})</ion-label>
+      <ion-checkbox slot="start" disabled *ngIf="item.isDisabled"></ion-checkbox>
+      <ion-checkbox [checked]="selectAll" (ionChange)="ionSelect(item.id)" slot="start" value="{{ item.id }}" *ngIf="!item.isDisabled"></ion-checkbox>
+    </ion-item>
   </ion-list>
+
+  <ion-list *ngIf="segmentVal == 'groups'">
+  </ion-list>
+
 </ion-content>

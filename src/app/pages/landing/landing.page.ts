@@ -30,13 +30,13 @@ export class LandingPage implements OnInit {
     private loadingController: LoadingController,
     private languageService: LanguageService
   ) { 
-    this.menu.enable(false);
     // if (!firebase.apps.length) {
     //   firebase.initializeApp( ENV.FIREBASE );
     // }
   }
 
   ionViewWillEnter() {
+    this.menu.enable(false, "mainMenu");
     this.authService.getToken().then(() => {
       if( this.authService.isLoggedIn )
       {

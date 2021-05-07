@@ -41,7 +41,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/arrow-left.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{ 'HISTORY_PAGE.history' | translate }}\n    </ion-title>\n\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"changeDatePopOver($event)\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/calendar.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n  </ion-toolbar>\n</ion-header>\n  \n\n\n<ion-content>\n  <div id=\"map_canvas\"></div>\n  <div id=\"over_map\">\n    <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"selectDevice()\">\n      {{ devicePlateNumber }}\n      <ion-icon slot=\"end\" src=\"assets/themify-icons/SVG/exchange-vertical.svg\"></ion-icon>\n    </ion-button>\n  </div>\n</ion-content>\n\n<ion-footer>\n\n  <ion-toolbar color=\"light\">\n\n    <ion-row class=\"padding-top-10\">\n    \n      <ion-col size=\"12\" class=\"text-center\">\n        {{ from }} to {{ to }}\n      </ion-col>\n\n      <ion-col size=\"2\" class=\"player-speed\">\n        x{{ playerSpeed }}\n      </ion-col>\n      <ion-col size=\"10\">\n        <ion-range [(ngModel)]=\"rangeCurrent\" min=\"{{ rangeStart }}\" max=\"{{ rangeStop }}\" color=\"primary\" mode=\"ios\">\n          <ion-label slot=\"start\">{{ rangeCurrent }}</ion-label>\n          <ion-label slot=\"end\">{{ rangeStop }}</ion-label>\n        </ion-range>\n      </ion-col>\n\n      <ion-col size=\"12\" class=\"text-center\">\n        {{ currentFixtime }}\n      </ion-col>\n    </ion-row>\n\n    <ion-grid class=\"text-center\">\n      \n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-button color=\"primary\" [disabled]=\"!isEnabledDecBtn\" (click)=\"decreasePlayerSpeed()\" size=\"small\">\n              <ion-icon src=\"assets/themify-icons/SVG/control-backward.svg\"></ion-icon>\n            </ion-button>\n            <ion-button color=\"primary\" (click)=\"play()\">\n              <ion-icon *ngIf=\"!isPlayed && !isRepeat\" src=\"assets/themify-icons/SVG/control-play.svg\"></ion-icon>\n              <ion-icon *ngIf=\"isPlayed && !isRepeat\" src=\"assets/themify-icons/SVG/control-pause.svg\"></ion-icon>\n              <ion-icon *ngIf=\"isRepeat\" src=\"assets/themify-icons/SVG/reload.svg\"></ion-icon>\n            </ion-button>\n            <ion-button color=\"primary\" [disabled]=\"!isEnabledIncBtn\" (click)=\"increasePlayerSpeed()\" size=\"small\">\n              <ion-icon src=\"assets/themify-icons/SVG/control-forward.svg\"></ion-icon>\n            </ion-button>\n          </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>";
+    __webpack_exports__["default"] = "<ion-header no-border>\n  <ion-toolbar  color=\"primary\" mode=\"ios\">\n\n    <ion-buttons slot=\"start\">\n      <ion-button (click)=\"goBack()\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/arrow-left.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n    <ion-title>\n      {{ 'HISTORY_PAGE.history' | translate }}\n    </ion-title>\n\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"changeDatePopOver($event)\">\n        <ion-icon class=\"bell-button\" src=\"assets/themify-icons/SVG/calendar.svg\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n\n  </ion-toolbar>\n</ion-header>\n  \n\n\n<ion-content>\n  <div id=\"map_canvas\">\n\n    <ion-fab vertical=\"top\" horizontal=\"start\" slot=\"fixed\">\n\n      <ion-fab-button color=\"primary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateDevice()\">\n        <ion-icon name=\"locate-outline\"></ion-icon>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"success\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateStartPoint()\">\n        <ion-label>Start</ion-label>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"danger\" size=\"small\" class=\"marginBottom5\" (click)=\"controlNavigateFinishPoint()\">\n        <ion-label>Stop</ion-label>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"primary\" size=\"small\" class=\"marginBottom5\" (click)=\"controlToggleShowParkSign()\" *ngIf=\"showParkSign\">\n        <ion-label><b>P</b></ion-label>\n      </ion-fab-button>\n\n      <ion-fab-button color=\"primary\" size=\"small\" class=\"marginBottom5 camera-disabled\" (click)=\"controlToggleShowParkSign()\" *ngIf=\"!showParkSign\">\n        <ion-label><b>P</b></ion-label>\n      </ion-fab-button>\n\n    </ion-fab>\n\n\n    <ion-fab vertical=\"center\" horizontal=\"end\" slot=\"fixed\">\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlSatelliteLayer()\">\n        <ion-icon name=\"layers-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"medium\" size=\"small\" class=\"marginBottom5\" (click)=\"controlTrafficLayer()\">\n        <ion-icon name=\"trail-sign-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomIn()\">\n        <ion-icon name=\"add-outline\"></ion-icon>\n      </ion-fab-button>\n      <ion-fab-button color=\"\" size=\"small\" class=\"marginBottom5\" (click)=\"controlZoomOut()\">\n        <ion-icon name=\"remove-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab>\n\n  </div>\n\n  <div id=\"over_map\">\n    <ion-button size=\"small\" shape=\"round\" color=\"primary\" (click)=\"selectDevice()\">\n      {{ devicePlateNumber }}\n      <ion-icon slot=\"end\" src=\"assets/themify-icons/SVG/exchange-vertical.svg\"></ion-icon>\n    </ion-button>\n  </div>\n</ion-content>\n\n<ion-footer>\n\n  <ion-toolbar color=\"light\">\n\n    <ion-row class=\"padding-top-10\">\n    \n      <ion-col size=\"12\" class=\"text-center\">\n        {{ from }} to {{ to }}\n      </ion-col>\n\n      <ion-col size=\"2\" class=\"player-speed\">\n        x{{ playerSpeed }}\n      </ion-col>\n      <ion-col size=\"10\">\n        <ion-range [(ngModel)]=\"rangeCurrent\" min=\"{{ rangeStart }}\" max=\"{{ rangeStop }}\" color=\"primary\" mode=\"ios\">\n          <ion-label slot=\"start\">{{ rangeCurrent }}</ion-label>\n          <ion-label slot=\"end\">{{ rangeStop }}</ion-label>\n        </ion-range>\n      </ion-col>\n\n      <ion-col size=\"12\" class=\"text-center\">\n        {{ currentFixtime }}\n      </ion-col>\n    </ion-row>\n\n    <ion-grid class=\"text-center\">\n      \n        <ion-row>\n          <ion-col class=\"ion-no-padding\">\n            <ion-button color=\"primary\" [disabled]=\"!isEnabledDecBtn\" (click)=\"decreasePlayerSpeed()\" size=\"small\">\n              <ion-icon src=\"assets/themify-icons/SVG/control-backward.svg\"></ion-icon>\n            </ion-button>\n            <ion-button color=\"primary\" (click)=\"play()\">\n              <ion-icon *ngIf=\"!isPlayed && !isRepeat\" src=\"assets/themify-icons/SVG/control-play.svg\"></ion-icon>\n              <ion-icon *ngIf=\"isPlayed && !isRepeat\" src=\"assets/themify-icons/SVG/control-pause.svg\"></ion-icon>\n              <ion-icon *ngIf=\"isRepeat\" src=\"assets/themify-icons/SVG/reload.svg\"></ion-icon>\n            </ion-button>\n            <ion-button color=\"primary\" [disabled]=\"!isEnabledIncBtn\" (click)=\"increasePlayerSpeed()\" size=\"small\">\n              <ion-icon src=\"assets/themify-icons/SVG/control-forward.svg\"></ion-icon>\n            </ion-button>\n          </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n  </ion-toolbar>\n\n</ion-footer>";
     /***/
   },
 
@@ -61,7 +61,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".list-ios {\n  margin-bottom: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ29vZ2xlbWFwL3NyYy9hcHAvcGFnZXMvaGlzdG9yeS1kYXRlLXBpY2tlci9oaXN0b3J5LWRhdGUtcGlja2VyLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvaGlzdG9yeS1kYXRlLXBpY2tlci9oaXN0b3J5LWRhdGUtcGlja2VyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9oaXN0b3J5LWRhdGUtcGlja2VyL2hpc3RvcnktZGF0ZS1waWNrZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxpc3QtaW9ze1xuICAgIG1hcmdpbi1ib3R0b206IDBweDtcbn0iLCIubGlzdC1pb3Mge1xuICBtYXJnaW4tYm90dG9tOiAwcHg7XG59Il19 */";
+    __webpack_exports__["default"] = ".list-ios {\n  margin-bottom: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL3BhZ2VzL2hpc3RvcnktZGF0ZS1waWNrZXIvaGlzdG9yeS1kYXRlLXBpY2tlci5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2hpc3RvcnktZGF0ZS1waWNrZXIvaGlzdG9yeS1kYXRlLXBpY2tlci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaGlzdG9yeS1kYXRlLXBpY2tlci9oaXN0b3J5LWRhdGUtcGlja2VyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5saXN0LWlvc3tcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XG59IiwiLmxpc3QtaW9zIHtcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xufSJdfQ== */";
     /***/
   },
 
@@ -426,7 +426,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "#wrapper {\n  position: relative;\n}\n\n#over_map {\n  position: absolute;\n  top: 10px;\n  left: 0;\n  right: 0;\n  z-index: 99;\n  text-align: center;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\n#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n\nion-button.rounded {\n  --border-radius: 100% !important;\n}\n\nion-range {\n  padding: 0px 10px;\n}\n\n.padding-top-10 {\n  padding-top: 10px;\n}\n\n.player-speed {\n  padding-top: 15px;\n  text-align: right;\n}\n\n#mapcan {\n  height: 100%;\n}\n\n#infobox {\n  border: 1px solid #e9e9e9;\n  margin-top: 8px;\n  background: #f7f7f7;\n  color: #5e5e5e;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  padding: 0.5em 1em;\n  border-radius: 2px;\n  box-shadow: 0 0 8px #525252;\n  z-index: 1000;\n}\n\n#namexpopup {\n  font-size: 14px;\n  font-weight: bold;\n  margin-top: 6px;\n  margin-bottom: 6px;\n}\n\n#addresspopup {\n  font-size: 11px;\n  margin-top: 10px;\n  margin-bottom: 5px;\n}\n\n#callnowpopup {\n  text-align: center;\n  height: 20px;\n  background: green;\n  color: white;\n  padding-top: 5px;\n  margin-top: 5px;\n  margin-bottom: 4px;\n  cursor: pointer;\n  text-decoration: none;\n  width: 100%;\n}\n\n#callnowpopup:hover {\n  background: #026102;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ29vZ2xlbWFwL3NyYy9hcHAvcGFnZXMvaGlzdG9yeS9oaXN0b3J5LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvaGlzdG9yeS9oaXN0b3J5LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFXLGtCQUFBO0FDRVg7O0FEREE7RUFDSSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0lKOztBREZBO0VBQ0ksa0JBQUE7QUNLSjs7QURIQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FDTUo7O0FESkE7RUFDSSxnQ0FBQTtBQ09KOztBREpBO0VBQ0ksaUJBQUE7QUNPSjs7QURKQTtFQUNJLGlCQUFBO0FDT0o7O0FETEE7RUFDSSxpQkFBQTtFQUNBLGlCQUFBO0FDUUo7O0FESEE7RUFDSSxZQUFBO0FDTUo7O0FESEE7RUFDSSx5QkFBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGNBQUE7RUFDQSx5Q0FBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtFQUdBLGtCQUFBO0VBRUEsMkJBQUE7RUFDQSxhQUFBO0FDTUo7O0FESEE7RUFDSSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUNNSjs7QURKQTtFQUNJLGVBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0FDT0o7O0FESkE7RUFDSSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxxQkFBQTtFQUNBLFdBQUE7QUNPSjs7QURKQTtFQUNJLG1CQUFBO0FDT0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9oaXN0b3J5L2hpc3RvcnkucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3dyYXBwZXIgeyBwb3NpdGlvbjogcmVsYXRpdmU7IH1cbiNvdmVyX21hcCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTBweDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OjA7XG4gICAgei1pbmRleDogOTk7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuaW9uLWNvbnRlbnQge1xuICAgIC0tb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbiNtYXBfY2FudmFzIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG5pb24tYnV0dG9uLnJvdW5kZWR7XG4gICAgLS1ib3JkZXItcmFkaXVzOiAxMDAlICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1yYW5nZXtcbiAgICBwYWRkaW5nOjBweCAxMHB4O1xufVxuXG4ucGFkZGluZy10b3AtMTB7XG4gICAgcGFkZGluZy10b3A6MTBweDtcbn1cbi5wbGF5ZXItc3BlZWR7XG4gICAgcGFkZGluZy10b3A6MTVweDtcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcbn1cblxuXG5cbiNtYXBjYW57XG4gICAgaGVpZ2h0OjEwMCU7XG59XG5cbiNpbmZvYm94IHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjMzLCAyMzMsIDIzMyk7XG4gICAgbWFyZ2luLXRvcDogOHB4O1xuICAgIGJhY2tncm91bmQ6IHJnYigyNDcsIDI0NywgMjQ3KTtcbiAgICBjb2xvcjogcmdiKDk0LCA5NCwgOTQpO1xuICAgIGZvbnQtZmFtaWx5OiBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBwYWRkaW5nOiAuNWVtIDFlbTtcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgICBib3JkZXItcmFkaXVzOiAycHg7XG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiAwIDAgOHB4ICM1MjUyNTI7XG4gICAgYm94LXNoYWRvdzogMCAwIDhweCAjNTI1MjUyO1xuICAgIHotaW5kZXg6IDEwMDA7XG59XG5cbiNuYW1leHBvcHVwe1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbiAgICBtYXJnaW4tdG9wOiA2cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNnB4O1xufVxuI2FkZHJlc3Nwb3B1cHtcbiAgICBmb250LXNpemU6IDExcHg7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbiAgICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gfVxuXG4jY2FsbG5vd3BvcHVwe1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDIwcHg7XG4gICAgYmFja2dyb3VuZDogZ3JlZW47XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIHBhZGRpbmctdG9wOiA1cHg7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIG1hcmdpbi1ib3R0b206IDRweDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIHdpZHRoOiAxMDAlO1xufVxuXG4jY2FsbG5vd3BvcHVwOmhvdmVye1xuICAgIGJhY2tncm91bmQ6IHJnYigyLCA5NywgMik7XG59IiwiI3dyYXBwZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbiNvdmVyX21hcCB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAxMHB4O1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgei1pbmRleDogOTk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbiNtYXBfY2FudmFzIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuaW9uLWJ1dHRvbi5yb3VuZGVkIHtcbiAgLS1ib3JkZXItcmFkaXVzOiAxMDAlICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1yYW5nZSB7XG4gIHBhZGRpbmc6IDBweCAxMHB4O1xufVxuXG4ucGFkZGluZy10b3AtMTAge1xuICBwYWRkaW5nLXRvcDogMTBweDtcbn1cblxuLnBsYXllci1zcGVlZCB7XG4gIHBhZGRpbmctdG9wOiAxNXB4O1xuICB0ZXh0LWFsaWduOiByaWdodDtcbn1cblxuI21hcGNhbiB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuI2luZm9ib3gge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZTllOWU5O1xuICBtYXJnaW4tdG9wOiA4cHg7XG4gIGJhY2tncm91bmQ6ICNmN2Y3Zjc7XG4gIGNvbG9yOiAjNWU1ZTVlO1xuICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBwYWRkaW5nOiAwLjVlbSAxZW07XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMnB4O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAtd2Via2l0LWJveC1zaGFkb3c6IDAgMCA4cHggIzUyNTI1MjtcbiAgYm94LXNoYWRvdzogMCAwIDhweCAjNTI1MjUyO1xuICB6LWluZGV4OiAxMDAwO1xufVxuXG4jbmFtZXhwb3B1cCB7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIG1hcmdpbi10b3A6IDZweDtcbiAgbWFyZ2luLWJvdHRvbTogNnB4O1xufVxuXG4jYWRkcmVzc3BvcHVwIHtcbiAgZm9udC1zaXplOiAxMXB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5cbiNjYWxsbm93cG9wdXAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGhlaWdodDogMjBweDtcbiAgYmFja2dyb3VuZDogZ3JlZW47XG4gIGNvbG9yOiB3aGl0ZTtcbiAgcGFkZGluZy10b3A6IDVweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA0cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICB3aWR0aDogMTAwJTtcbn1cblxuI2NhbGxub3dwb3B1cDpob3ZlciB7XG4gIGJhY2tncm91bmQ6ICMwMjYxMDI7XG59Il19 */";
+    __webpack_exports__["default"] = "#wrapper {\n  position: relative;\n}\n\n#over_map {\n  position: absolute;\n  top: 10px;\n  left: 0;\n  right: 0;\n  z-index: 99;\n  text-align: center;\n}\n\nion-content {\n  --overflow: hidden;\n}\n\n#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n\nion-button.rounded {\n  --border-radius: 100% !important;\n}\n\nion-range {\n  padding: 0px 10px;\n}\n\n.padding-top-10 {\n  padding-top: 10px;\n}\n\n.player-speed {\n  padding-top: 15px;\n  text-align: right;\n}\n\n#mapcan {\n  height: 100%;\n}\n\n#infobox {\n  border: 1px solid #e9e9e9;\n  margin-top: 8px;\n  background: #f7f7f7;\n  color: #5e5e5e;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 12px;\n  padding: 0.5em 1em;\n  border-radius: 2px;\n  box-shadow: 0 0 8px #525252;\n  z-index: 1000;\n}\n\n#namexpopup {\n  font-size: 14px;\n  font-weight: bold;\n  margin-top: 6px;\n  margin-bottom: 6px;\n}\n\n#addresspopup {\n  font-size: 11px;\n  margin-top: 10px;\n  margin-bottom: 5px;\n}\n\n#callnowpopup {\n  text-align: center;\n  height: 20px;\n  background: green;\n  color: white;\n  padding-top: 5px;\n  margin-top: 5px;\n  margin-bottom: 4px;\n  cursor: pointer;\n  text-decoration: none;\n  width: 100%;\n}\n\n#callnowpopup:hover {\n  background: #026102;\n}\n\n.camera-disabled {\n  opacity: 0.6;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90ZXBhZnJpbC9Eb2N1bWVudHMvZ3RvcGNsaWVudC9zcmMvYXBwL3BhZ2VzL2hpc3RvcnkvaGlzdG9yeS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2hpc3RvcnkvaGlzdG9yeS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBVyxrQkFBQTtBQ0VYOztBRERBO0VBQ0ksa0JBQUE7RUFDQSxTQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNJSjs7QURGQTtFQUNJLGtCQUFBO0FDS0o7O0FESEE7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ01KOztBREpBO0VBQ0ksZ0NBQUE7QUNPSjs7QURKQTtFQUNJLGlCQUFBO0FDT0o7O0FESkE7RUFDSSxpQkFBQTtBQ09KOztBRExBO0VBQ0ksaUJBQUE7RUFDQSxpQkFBQTtBQ1FKOztBREhBO0VBQ0ksWUFBQTtBQ01KOztBREhBO0VBQ0kseUJBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EseUNBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFHQSxrQkFBQTtFQUVBLDJCQUFBO0VBQ0EsYUFBQTtBQ01KOztBREhBO0VBQ0ksZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FDTUo7O0FESkE7RUFDSSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ09KOztBREpBO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxXQUFBO0FDT0o7O0FESkE7RUFDSSxtQkFBQTtBQ09KOztBRExBO0VBQ0ksWUFBQTtBQ1FKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaGlzdG9yeS9oaXN0b3J5LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiN3cmFwcGVyIHsgcG9zaXRpb246IHJlbGF0aXZlOyB9XG4jb3Zlcl9tYXAge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDEwcHg7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDowO1xuICAgIHotaW5kZXg6IDk5O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbmlvbi1jb250ZW50IHtcbiAgICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG4jbWFwX2NhbnZhcyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xufVxuaW9uLWJ1dHRvbi5yb3VuZGVke1xuICAgIC0tYm9yZGVyLXJhZGl1czogMTAwJSAhaW1wb3J0YW50O1xufVxuXG5pb24tcmFuZ2V7XG4gICAgcGFkZGluZzowcHggMTBweDtcbn1cblxuLnBhZGRpbmctdG9wLTEwe1xuICAgIHBhZGRpbmctdG9wOjEwcHg7XG59XG4ucGxheWVyLXNwZWVke1xuICAgIHBhZGRpbmctdG9wOjE1cHg7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG59XG5cblxuXG4jbWFwY2Fue1xuICAgIGhlaWdodDoxMDAlO1xufVxuXG4jaW5mb2JveCB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgcmdiKDIzMywgMjMzLCAyMzMpO1xuICAgIG1hcmdpbi10b3A6IDhweDtcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMjQ3LCAyNDcsIDI0Nyk7XG4gICAgY29sb3I6IHJnYig5NCwgOTQsIDk0KTtcbiAgICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgcGFkZGluZzogLjVlbSAxZW07XG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAycHg7XG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAycHg7XG4gICAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAgIC13ZWJraXQtYm94LXNoYWRvdzogMCAwIDhweCAjNTI1MjUyO1xuICAgIGJveC1zaGFkb3c6IDAgMCA4cHggIzUyNTI1MjtcbiAgICB6LWluZGV4OiAxMDAwO1xufVxuXG4jbmFtZXhwb3B1cHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgbWFyZ2luLXRvcDogNnB4O1xuICAgIG1hcmdpbi1ib3R0b206IDZweDtcbn1cbiNhZGRyZXNzcG9wdXB7XG4gICAgZm9udC1zaXplOiAxMXB4O1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuIH1cblxuI2NhbGxub3dwb3B1cHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgaGVpZ2h0OiAyMHB4O1xuICAgIGJhY2tncm91bmQ6IGdyZWVuO1xuICAgIGNvbG9yOiB3aGl0ZTtcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xuICAgIG1hcmdpbi10b3A6IDVweDtcbiAgICBtYXJnaW4tYm90dG9tOiA0cHg7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuI2NhbGxub3dwb3B1cDpob3ZlcntcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMiwgOTcsIDIpO1xufVxuLmNhbWVyYS1kaXNhYmxlZHtcbiAgICBvcGFjaXR5OiAwLjY7XG59IiwiI3dyYXBwZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbiNvdmVyX21hcCB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAxMHB4O1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgei1pbmRleDogOTk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAtLW92ZXJmbG93OiBoaWRkZW47XG59XG5cbiNtYXBfY2FudmFzIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuaW9uLWJ1dHRvbi5yb3VuZGVkIHtcbiAgLS1ib3JkZXItcmFkaXVzOiAxMDAlICFpbXBvcnRhbnQ7XG59XG5cbmlvbi1yYW5nZSB7XG4gIHBhZGRpbmc6IDBweCAxMHB4O1xufVxuXG4ucGFkZGluZy10b3AtMTAge1xuICBwYWRkaW5nLXRvcDogMTBweDtcbn1cblxuLnBsYXllci1zcGVlZCB7XG4gIHBhZGRpbmctdG9wOiAxNXB4O1xuICB0ZXh0LWFsaWduOiByaWdodDtcbn1cblxuI21hcGNhbiB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuI2luZm9ib3gge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZTllOWU5O1xuICBtYXJnaW4tdG9wOiA4cHg7XG4gIGJhY2tncm91bmQ6ICNmN2Y3Zjc7XG4gIGNvbG9yOiAjNWU1ZTVlO1xuICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBwYWRkaW5nOiAwLjVlbSAxZW07XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMnB4O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAtd2Via2l0LWJveC1zaGFkb3c6IDAgMCA4cHggIzUyNTI1MjtcbiAgYm94LXNoYWRvdzogMCAwIDhweCAjNTI1MjUyO1xuICB6LWluZGV4OiAxMDAwO1xufVxuXG4jbmFtZXhwb3B1cCB7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIG1hcmdpbi10b3A6IDZweDtcbiAgbWFyZ2luLWJvdHRvbTogNnB4O1xufVxuXG4jYWRkcmVzc3BvcHVwIHtcbiAgZm9udC1zaXplOiAxMXB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5cbiNjYWxsbm93cG9wdXAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGhlaWdodDogMjBweDtcbiAgYmFja2dyb3VuZDogZ3JlZW47XG4gIGNvbG9yOiB3aGl0ZTtcbiAgcGFkZGluZy10b3A6IDVweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA0cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICB3aWR0aDogMTAwJTtcbn1cblxuI2NhbGxub3dwb3B1cDpob3ZlciB7XG4gIGJhY2tncm91bmQ6ICMwMjYxMDI7XG59XG5cbi5jYW1lcmEtZGlzYWJsZWQge1xuICBvcGFjaXR5OiAwLjY7XG59Il19 */";
     /***/
   },
 
@@ -506,28 +506,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _select_device_select_device_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _ionic_native_launch_navigator_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @ionic-native/launch-navigator/ngx */
+    "./node_modules/@ionic-native/launch-navigator/ngx/index.js");
+    /* harmony import */
+
+
+    var _select_device_select_device_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ../select-device/select-device.page */
     "./src/app/pages/select-device/select-device.page.ts");
     /* harmony import */
 
 
-    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @ngx-translate/core */
     "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
     /* harmony import */
 
 
-    var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @ionic-native/google-maps */
     "./node_modules/@ionic-native/google-maps/index.js");
 
     var HistoryPage =
     /*#__PURE__*/
     function () {
-      function HistoryPage(http, navCtrl, popoverController, authService, platform, loadingController, lang, storageService, modalController) {
+      function HistoryPage(launchNavigator, http, navCtrl, popoverController, authService, platform, loadingController, lang, storageService, modalController) {
         _classCallCheck(this, HistoryPage);
 
+        this.launchNavigator = launchNavigator;
         this.http = http;
         this.navCtrl = navCtrl;
         this.popoverController = popoverController;
@@ -546,7 +553,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.rangeCurrent = 0;
         this.isPlayed = false;
         this.isRepeat = false;
-        this.deltaConst = 100;
+        this.deltaConst = 50;
         this.numDeltas = 0;
         this.delay = 1000; //milliseconds
 
@@ -556,6 +563,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.currentFixtime = '';
         this.from = '';
         this.to = '';
+        this.parkingJson = [];
         this.statusColor = {
           "deviceOnline": "#00a850",
           "deviceOffline": "#db3d2c",
@@ -583,8 +591,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           "off": "off"
         };
         this.drivePath = null;
+        this.parkingMarker = [];
         this.isEnabledIncBtn = true;
         this.isEnabledDecBtn = false;
+        this.toggleTraffic = false;
+        this.toggleSatellite = false;
+        this.followCamera = false;
+        this.showParkSign = false;
         this.numDeltas = this.deltaConst;
       }
 
@@ -627,16 +640,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function loadMap() {
           var _this = this;
 
-          this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_11__["GoogleMaps"].create('map_canvas', {
+          this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_12__["GoogleMaps"].create('map_canvas', {
             camera: {
               target: {
                 lat: 11.5560777,
                 lng: 104.8941368
               },
               zoom: 7
+            },
+            preferences: {
+              zoom: {
+                minZoom: 6,
+                maxZoom: 18
+              },
+              building: true
+            },
+            controls: {
+              compass: false
+            },
+            gestures: {
+              rotate: false
             }
           });
-          this.map.one(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_11__["GoogleMapsEvent"].MAP_READY).then(function () {
+          this.map.one(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_12__["GoogleMapsEvent"].MAP_READY).then(function () {
             // Get Current Item from Storage
             _this.storageService.setItem().subscribe(function (res) {
               _this.current_item = _this.storageService.current_item;
@@ -651,6 +677,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this.init().subscribe(function (data) {
                 var response = data;
                 _this.historyJson = response.positions;
+                _this.parkingJson = JSON.parse(response.parking);
                 _this.rangeStop = _this.historyJson.length;
               }, function (error) {
                 console.log(error);
@@ -694,14 +721,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.marker = null;
           }
 
+          if (this.parkingMarker.length > 0) {
+            for (var _i = 0; _i < this.parkingMarker.length; _i++) {
+              this.parkingMarker[_i].remove();
+            }
+          }
+
+          if (this.startMarker != null) {
+            this.startMarker.remove();
+            this.startMarker = null;
+          }
+
+          if (this.finishMarker != null) {
+            this.finishMarker.remove();
+            this.finishMarker = null;
+          }
+
+          for (var _i2 = 0; _i2 < this.parkingJson.length; _i2++) {
+            if (this.showParkSign) {
+              var parkingIcon = {
+                url: 'assets/google/marker/park-sign.png',
+                size: {
+                  width: 40,
+                  height: 57
+                }
+              };
+              var parking = this.map.addMarkerSync({
+                icon: parkingIcon,
+                position: {
+                  lat: this.parkingJson[_i2].latitude,
+                  lng: this.parkingJson[_i2].longitude
+                }
+              });
+              this.parkingMarker.push(parking);
+            }
+          }
+
           this.drivePath = this.map.addPolylineSync({
             points: driveCoordinates,
-            color: '#FF0000',
-            width: 2,
+            color: '#1877f2',
+            width: 5,
             geodesic: true
           });
           var icon = {
-            url: 'assets/google/marker/' + this.current_item.icon_name + '.png',
+            url: 'assets/google/marker/' + this.current_item.icon_name + '/0.png',
             size: {
               width: this.deviceIconSize,
               height: this.deviceIconSize
@@ -715,6 +778,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
           this.marker.setIconAnchor(this.deviceIconSize / 2, this.deviceIconSize / 2);
+
+          if (!this.showParkSign) {
+            var startIcon = {
+              url: 'assets/google/marker/start-sign.png',
+              size: {
+                width: 40,
+                height: 57
+              }
+            };
+            this.startMarker = this.map.addMarkerSync({
+              icon: startIcon,
+              position: {
+                lat: this.historyJson[0].latitude,
+                lng: this.historyJson[0].longitude
+              }
+            });
+          }
+
+          if (!this.showParkSign) {
+            var countHistoryJson = this.historyJson.length - 1;
+            var finishIcon = {
+              url: 'assets/google/marker/stop-sign.png',
+              size: {
+                width: 40,
+                height: 57
+              }
+            };
+            this.finishMarker = this.map.addMarkerSync({
+              icon: finishIcon,
+              position: {
+                lat: this.historyJson[countHistoryJson].latitude,
+                lng: this.historyJson[countHistoryJson].longitude
+              }
+            });
+          }
+
           var traccar_attributes = JSON.parse(this.historyJson[this.rangeCurrent].attributes); // let traccar_event = this.httpResponse.event;
 
           var traccar_status = '';
@@ -973,9 +1072,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (this.isPlayed) {
               this.recursiveExec();
-            } // let traccar_date = this.readableLocalDate2(this.historyJson[this.rangeCurrent].fixtime) + ' ' + this.readableLocalTime2(this.historyJson[this.rangeCurrent].fixtime);
-            // this.currentFixtime = traccar_date;
+            }
 
+            var traccar_date = this.readableLocalDate2(this.historyJson[this.rangeCurrent].fixtime) + ' ' + this.readableLocalTime2(this.historyJson[this.rangeCurrent].fixtime);
+            this.currentFixtime = traccar_date;
           } // }
 
         }
@@ -990,22 +1090,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
           var brng = Math.atan2(y, x);
           return (brng * 180 / Math.PI + 360) % 360;
-        }
-      }, {
-        key: "getImageByDegree",
-        value: function getImageByDegree() {
-          var degree = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-
-          // console.log("getImageByDegree: is running");
-          if (degree > 0 && degree <= 97) {
-            if (degree > 0 && degree <= 7) return '0.png';else if (degree > 7 && degree <= 22) return '15.png';else if (degree > 22 && degree <= 37) return '30.png';else if (degree > 37 && degree <= 52) return '45.png';else if (degree > 52 && degree <= 67) return '60.png';else if (degree > 67 && degree <= 82) return '75.png';else if (degree > 82 && degree <= 97) return '90.png';
-          } else if (degree > 97 && degree <= 187) {
-            if (degree > 97 && degree <= 112) return '105.png';else if (degree > 112 && degree <= 127) return '120.png';else if (degree > 127 && degree <= 142) return '135.png';else if (degree > 142 && degree <= 157) return '150.png';else if (degree > 157 && degree <= 172) return '165.png';else if (degree > 172 && degree <= 187) return '180.png';
-          } else if (degree > 187 && degree <= 277) {
-            if (degree > 187 && degree <= 202) return '195.png';else if (degree > 202 && degree <= 217) return '210.png';else if (degree > 217 && degree <= 232) return '225.png';else if (degree > 232 && degree <= 247) return '240.png';else if (degree > 247 && degree <= 262) return '255.png';else if (degree > 262 && degree <= 277) return '270.png';
-          } else if (degree > 277 && degree <= 360) {
-            if (degree > 277 && degree <= 292) return '285.png';else if (degree > 292 && degree <= 307) return '300.png';else if (degree > 307 && degree <= 322) return '315.png';else if (degree > 322 && degree <= 337) return '330.png';else if (degree > 337 && degree <= 352) return '345.png';else return '360.png';
-          } else return '360.png';
         }
       }, {
         key: "increasePlayerSpeed",
@@ -1178,6 +1262,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                         var response = data;
                         _this3.historyJson = response.positions;
+                        _this3.parkingJson = JSON.parse(response.parking);
                         _this3.rangeStop = _this3.historyJson.length;
                       }, function (error) {
                         console.log(error);
@@ -1239,41 +1324,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }));
         }
       }, {
-        key: "ZoomControl",
-        value: function ZoomControl(controlDiv, map, infoBox) {
-          var _this4 = this;
-
-          // Creating divs & styles for custom zoom control
-          controlDiv.style.padding = '5px'; // Set CSS for the control wrapper
-
-          var controlWrapper = document.createElement('div');
-          controlWrapper.style.cursor = 'pointer';
-          controlWrapper.style.textAlign = 'center';
-          controlWrapper.style.width = '40px';
-          controlWrapper.style.height = '48px';
-          controlWrapper.style.marginBottom = '80px';
-          controlDiv.appendChild(controlWrapper); // Set CSS for the viewDialog
-
-          var viewButton = document.createElement('div');
-          viewButton.style.width = '40px';
-          viewButton.style.height = '40px';
-          viewButton.style.marginBottom = '2px';
-          /* Change this to be the .png image you want to use */
-
-          viewButton.style.backgroundImage = 'url("assets/google/viewBtn.png")';
-          controlWrapper.appendChild(viewButton); // Setup the click event listener - zoomOut
-
-          google.maps.event.addDomListener(viewButton, 'click', function () {
-            _this4.infoBox.setVisible(!_this4.infoBox.getVisible());
-          });
-        }
-      }, {
         key: "selectDevice",
         value: function selectDevice() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee5() {
-            var _this5 = this;
+            var _this4 = this;
 
             var assignItemModal;
             return regeneratorRuntime.wrap(function _callee5$(_context5) {
@@ -1282,7 +1338,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   case 0:
                     _context5.next = 2;
                     return this.modalController.create({
-                      component: _select_device_select_device_page__WEBPACK_IMPORTED_MODULE_9__["SelectDevicePage"],
+                      component: _select_device_select_device_page__WEBPACK_IMPORTED_MODULE_10__["SelectDevicePage"],
                       componentProps: {
                         // groupItems: this.groupItems,
                         // groupID: this.groupID
@@ -1293,34 +1349,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   case 2:
                     assignItemModal = _context5.sent;
                     assignItemModal.onDidDismiss().then(function (res) {
-                      _this5.selectedItems = res.data; // Present Preloading
+                      _this4.selectedItems = res.data; // Present Preloading
 
-                      _this5.presentLoading();
+                      _this4.presentLoading();
 
-                      _this5.storageService.setItem().subscribe(function (res) {
-                        _this5.current_item = _this5.selectedItems;
-                        _this5.deviceIcon = _this5.current_item.icon_name;
-                        _this5.deviceIconSize = _this5.current_item.icon_size;
-                        _this5.devicePlateNumber = _this5.current_item.plate;
+                      _this4.storageService.setItem().subscribe(function (res) {
+                        _this4.current_item = _this4.selectedItems;
+                        _this4.deviceIcon = _this4.current_item.icon_name;
+                        _this4.deviceIconSize = _this4.current_item.icon_size;
+                        _this4.devicePlateNumber = _this4.current_item.plate;
                       }, function (err) {
                         console.log(err);
                       }, function () {
-                        _this5.init().subscribe(function (data) {
+                        _this4.init().subscribe(function (data) {
                           var response = data;
-                          _this5.historyJson = response.positions;
-                          _this5.rangeStop = _this5.historyJson.length;
+                          _this4.historyJson = response.positions;
+                          _this4.parkingJson = JSON.parse(response.parking);
+                          _this4.rangeStop = _this4.historyJson.length;
                         }, function (error) {
                           console.log(error);
 
-                          _this5.loading.dismiss();
+                          _this4.loading.dismiss();
                         }, function () {
-                          if (_this5.rangeStop > 0) {
-                            _this5.getData();
+                          if (_this4.rangeStop > 0) {
+                            _this4.getData();
                           } else {
                             alert("No data");
                           }
 
-                          _this5.loading.dismiss();
+                          _this4.loading.dismiss();
                         });
                       });
                     }).catch(function (err) {
@@ -1340,6 +1397,144 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }, _callee5, this);
           }));
         }
+      }, {
+        key: "controlNavigateDevice",
+        value: function controlNavigateDevice() {
+          this.map.animateCamera({
+            target: {
+              lat: this.historyJson[this.rangeCurrent].latitude,
+              lng: this.historyJson[this.rangeCurrent].longitude
+            },
+            duration: 750
+          });
+        }
+      }, {
+        key: "controlNavigateStartPoint",
+        value: function controlNavigateStartPoint() {
+          this.map.animateCamera({
+            target: {
+              lat: this.historyJson[0].latitude,
+              lng: this.historyJson[0].longitude
+            },
+            duration: 750
+          });
+        }
+      }, {
+        key: "controlNavigateFinishPoint",
+        value: function controlNavigateFinishPoint() {
+          var countHistoryJson = this.historyJson.length - 1;
+          this.map.animateCamera({
+            target: {
+              lat: this.historyJson[countHistoryJson].latitude,
+              lng: this.historyJson[countHistoryJson].longitude
+            },
+            duration: 750
+          });
+        }
+      }, {
+        key: "controlTrafficLayer",
+        value: function controlTrafficLayer() {
+          this.toggleTraffic = !this.toggleTraffic;
+          this.map.setTrafficEnabled(this.toggleTraffic);
+        }
+      }, {
+        key: "controlSatelliteLayer",
+        value: function controlSatelliteLayer() {
+          this.toggleSatellite = !this.toggleSatellite;
+
+          if (this.toggleSatellite == false) {
+            this.map.setMapTypeId(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_12__["GoogleMapsMapTypeId"]["ROADMAP"]);
+          } else {
+            this.map.setMapTypeId(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_12__["GoogleMapsMapTypeId"]["HYBRID"]);
+          }
+        }
+      }, {
+        key: "controlZoomIn",
+        value: function controlZoomIn() {
+          this.map.animateCameraZoomIn().then(function () {});
+        }
+      }, {
+        key: "controlZoomOut",
+        value: function controlZoomOut() {
+          this.map.animateCameraZoomOut().then(function () {});
+        }
+      }, {
+        key: "controlToggleShowParkSign",
+        value: function controlToggleShowParkSign() {
+          this.showParkSign = !this.showParkSign;
+
+          if (this.showParkSign) {
+            for (var i = 0; i < this.parkingJson.length; i++) {
+              var parkingIcon = {
+                url: 'assets/google/marker/park-sign.png',
+                size: {
+                  width: 40,
+                  height: 57
+                }
+              };
+              var parking = this.map.addMarkerSync({
+                icon: parkingIcon,
+                position: {
+                  lat: this.parkingJson[i].latitude,
+                  lng: this.parkingJson[i].longitude
+                }
+              });
+              this.parkingMarker.push(parking);
+            }
+
+            this.startMarker.remove();
+            this.startMarker = null;
+            this.finishMarker.remove();
+            this.finishMarker = null;
+          } else {
+            for (var _i3 = 0; _i3 < this.parkingMarker.length; _i3++) {
+              this.parkingMarker[_i3].remove();
+            }
+
+            var startIcon = {
+              url: 'assets/google/marker/start-sign.png',
+              size: {
+                width: 40,
+                height: 57
+              }
+            };
+            this.startMarker = this.map.addMarkerSync({
+              icon: startIcon,
+              position: {
+                lat: this.historyJson[0].latitude,
+                lng: this.historyJson[0].longitude
+              }
+            });
+            var countHistoryJson = this.historyJson.length - 1;
+            var finishIcon = {
+              url: 'assets/google/marker/stop-sign.png',
+              size: {
+                width: 40,
+                height: 57
+              }
+            };
+            this.finishMarker = this.map.addMarkerSync({
+              icon: finishIcon,
+              position: {
+                lat: this.historyJson[countHistoryJson].latitude,
+                lng: this.historyJson[countHistoryJson].longitude
+              }
+            });
+          }
+        }
+      }, {
+        key: "controlGoogleDirection",
+        value: function controlGoogleDirection() {// let options: LaunchNavigatorOptions = {
+          //   start: [this.userPosition.lat,this.userPosition.lng],
+          //   app: this.launchNavigator.APP.GOOGLE_MAPS
+          // };
+          // this.launchNavigator.navigate([this.devicePosition.lat,this.devicePosition.lng],options)
+          //   .then(success =>{
+          //     console.log(success);
+          //   },error=>{
+          //     console.log(error);
+          // });
+        }
       }]);
 
       return HistoryPage;
@@ -1347,6 +1542,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     HistoryPage.ctorParameters = function () {
       return [{
+        type: _ionic_native_launch_navigator_ngx__WEBPACK_IMPORTED_MODULE_9__["LaunchNavigator"]
+      }, {
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]
@@ -1359,7 +1556,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]
       }, {
-        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"]
       }, {
         type: src_app_services_storage_service__WEBPACK_IMPORTED_MODULE_8__["StorageService"]
       }, {
@@ -1378,7 +1575,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./history.page.scss */
       "./src/app/pages/history/history.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"], src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"], src_app_services_storage_service__WEBPACK_IMPORTED_MODULE_8__["StorageService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])], HistoryPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_launch_navigator_ngx__WEBPACK_IMPORTED_MODULE_9__["LaunchNavigator"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["PopoverController"], src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_11__["TranslateService"], src_app_services_storage_service__WEBPACK_IMPORTED_MODULE_8__["StorageService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"]])], HistoryPage);
     /***/
   }
 }]);

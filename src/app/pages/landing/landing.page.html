@@ -19,14 +19,14 @@
         <ion-col>
           <ion-button color="success" expand="full" (click)="login()">{{ 'APP.login' | translate }}</ion-button>
         </ion-col>
-        <ion-col>
-          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
-        </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-button color="primary" expand="full" (click)="forgetpassword()"><ion-icon src="assets/themify-icons/SVG/lock.svg"></ion-icon> &nbsp;&nbsp;&nbsp; {{ 'APP.forgot_password' | translate }}</ion-button>
+          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="primary" expand="full" (click)="forgetpassword()">{{ 'APP.forgot_password' | translate }}</ion-button>
         </ion-col>
       </ion-row>
 
@@ -49,19 +49,19 @@
 
       <ion-row>
         <ion-col size="3"></ion-col>
-        <ion-col size="3">
+        <ion-col size="6">
           <ion-button color="success" expand="full" (click)="login()">{{ 'APP.login' | translate }}</ion-button>
-        </ion-col>
-        <ion-col size="3">
-          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
         </ion-col>
         <ion-col size="3"></ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="3"></ion-col>
-        <ion-col size="6">
-          <ion-button color="primary" expand="full" (click)="forgetpassword()"><ion-icon src="assets/themify-icons/SVG/lock.svg"></ion-icon> &nbsp;&nbsp;&nbsp; {{ 'APP.forgot_password' | translate }}</ion-button>
+        <ion-col size="3">
+          <ion-button color="danger" expand="full" (click)="register()">{{ 'APP.register' | translate }}</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="primary" expand="full" (click)="forgetpassword()">{{ 'APP.forgot_password' | translate }}</ion-button>
         </ion-col>
         <ion-col size="3"></ion-col>
       </ion-row>

@@ -2950,7 +2950,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
       touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
       var startX = touches.currentX;
-      var startY = touches.currentY; // Do NOT start if iOS edge swipe is detected. Otherwise iOS app () cannot swipe-to-go-back anymore
+      var startY = touches.currentY; // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
 
       var edgeSwipeDetection = params.edgeSwipeDetection || params.iOSEdgeSwipeDetection;
       var edgeSwipeThreshold = params.edgeSwipeThreshold || params.iOSEdgeSwipeThreshold;
@@ -3897,7 +3897,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       speed: 300,
       //
       preventInteractionOnTransition: false,
-      // To support iOS's swipe-to-go-back gesture (when being used in-app, with ).
+      // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
       edgeSwipeDetection: false,
       edgeSwipeThreshold: 20,
       // Free mode

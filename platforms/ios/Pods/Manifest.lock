@@ -90,8 +90,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FirebaseCore
     - FirebaseCoreDiagnosticsInterop
-    - GoogleUtilities
-    - nanopb
   trunk:
     - Firebase
     - FirebaseAnalytics

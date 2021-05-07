@@ -9,7 +9,7 @@
         "parents": {
           "NSLocationWhenInUseUsageDescription": [
             {
-              "xml": "<string>We use your location for full functionality of certain app features.</string>",
+              "xml": "<string>GTOP Cambodia would like to use your current location to display it on the app, also for the distance between you and your vehicle. It is secure and private.</string>",
               "count": 1,
               "mode": "merge",
               "id": "config.xml"
@@ -18,7 +18,7 @@
           "ITSAppUsesNonExemptEncryption": [
             {
               "xml": "<false />",
-              "count": 15
+              "count": 18
             }
           ],
           "NSLocationAlwaysUsageDescription": [
@@ -197,6 +197,14 @@
             {
               "xml": "<feature name=\"LaunchNavigator\"><param name=\"ios-package\" value=\"LaunchNavigatorPlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+              "count": 1
             }
           ]
         }
@@ -288,6 +296,9 @@
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
+    "cordova-plugin-camera": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
@@ -878,6 +889,38 @@
       "merges": [
         "launchnavigator"
       ]
+    },
+    {
+      "id": "cordova-plugin-camera.Camera",
+      "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "Camera"
+      ]
+    },
+    {
+      "id": "cordova-plugin-camera.CameraPopoverOptions",
+      "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "CameraPopoverOptions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-camera.camera",
+      "file": "plugins/cordova-plugin-camera/www/Camera.js",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "navigator.camera"
+      ]
+    },
+    {
+      "id": "cordova-plugin-camera.CameraPopoverHandle",
+      "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
+      "pluginId": "cordova-plugin-camera",
+      "clobbers": [
+        "CameraPopoverHandle"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -901,6 +944,7 @@
     "onesignal-cordova-plugin": "2.8.4",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
     "cordova-plugin-androidx": "1.0.2",
-    "cordova-plugin-androidx-adapter": "1.1.0"
+    "cordova-plugin-androidx-adapter": "1.1.0",
+    "cordova-plugin-camera": "4.1.0"
   }
 }

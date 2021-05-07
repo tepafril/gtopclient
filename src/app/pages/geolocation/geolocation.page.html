@@ -65,9 +65,15 @@
     
   </div>
   <div id="over_map">
+    <ion-button size="small" shape="round" color="primary" (click)="prevDevice()" disabled={{disable_next_prev}}>
+      <ion-icon src="assets/themify-icons/SVG/arrow-left.svg"></ion-icon>
+    </ion-button>
     <ion-button size="small" shape="round" color="primary" (click)="selectDevice()">
       {{ devicePlateNumber }}
       <ion-icon slot="end" src="assets/themify-icons/SVG/exchange-vertical.svg"></ion-icon>
+    </ion-button>
+    <ion-button size="small" shape="round" color="primary" (click)="nextDevice()" disabled={{disable_next_prev}}>
+      <ion-icon src="assets/themify-icons/SVG/arrow-right.svg"></ion-icon>
     </ion-button>
   </div>
 </ion-content>
